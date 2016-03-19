@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Server
 {
+    enum CookingType { Kitchen, Bar };
+
     class Program
     {
         static void Main(string[] args)
