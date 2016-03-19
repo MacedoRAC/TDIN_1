@@ -1,0 +1,5 @@
+C:\Users\mario\Documents\c#\Restaurant\Printer\bin\Debug\Printer.exe.config
+C:\Users\mario\Documents\c#\Restaurant\Printer\bin\Debug\Printer.exe
+C:\Users\mario\Documents\c#\Restaurant\Printer\bin\Debug\Printer.pdb
+C:\Users\mario\Documents\c#\Restaurant\Printer\obj\Debug\Printer.exe
+C:\Users\mario\Documents\c#\Restaurant\Printer\obj\Debug\Printer.pdb

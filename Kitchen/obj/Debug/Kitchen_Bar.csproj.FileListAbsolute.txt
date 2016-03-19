@@ -1,0 +1,8 @@
+C:\Users\mario\Documents\c#\Restaurant\Kitchen\bin\Debug\Kitchen.exe.config
+C:\Users\mario\Documents\c#\Restaurant\Kitchen\bin\Debug\Kitchen.exe
+C:\Users\mario\Documents\c#\Restaurant\Kitchen\bin\Debug\Kitchen.pdb
+C:\Users\mario\Documents\c#\Restaurant\Kitchen\obj\Debug\Kitchen_Bar.csprojResolveAssemblyReference.cache
+C:\Users\mario\Documents\c#\Restaurant\Kitchen\obj\Debug\Kitchen.Properties.Resources.resources
+C:\Users\mario\Documents\c#\Restaurant\Kitchen\obj\Debug\Kitchen_Bar.csproj.GenerateResource.Cache
+C:\Users\mario\Documents\c#\Restaurant\Kitchen\obj\Debug\Kitchen.exe
+C:\Users\mario\Documents\c#\Restaurant\Kitchen\obj\Debug\Kitchen.pdb

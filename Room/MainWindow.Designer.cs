@@ -77,13 +77,12 @@
             // 
             this.addTableBtn.BackColor = System.Drawing.Color.CadetBlue;
             this.addTableBtn.FlatAppearance.BorderSize = 0;
-            this.addTableBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addTableBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addTableBtn.ForeColor = System.Drawing.Color.White;
             this.addTableBtn.Location = new System.Drawing.Point(2, 3);
             this.addTableBtn.Margin = new System.Windows.Forms.Padding(2, 3, 3, 0);
             this.addTableBtn.Name = "addTableBtn";
-            this.addTableBtn.Size = new System.Drawing.Size(98, 39);
+            this.addTableBtn.Size = new System.Drawing.Size(107, 39);
             this.addTableBtn.TabIndex = 0;
             this.addTableBtn.Text = "Open Table";
             this.addTableBtn.UseVisualStyleBackColor = false;
