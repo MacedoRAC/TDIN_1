@@ -6,3 +6,4 @@ C:\Users\mario\Documents\c#\Restaurant\Room\obj\Debug\Room.Properties.Resources.
 C:\Users\mario\Documents\c#\Restaurant\Room\obj\Debug\Room.csproj.GenerateResource.Cache
 C:\Users\mario\Documents\c#\Restaurant\Room\obj\Debug\Room.exe
 C:\Users\mario\Documents\c#\Restaurant\Room\obj\Debug\Room.pdb
+C:\Users\mario\documents\c#\Restaurant\Room\obj\Debug\Room.csprojResolveAssemblyReference.cache
