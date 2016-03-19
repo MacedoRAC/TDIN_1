@@ -29,91 +29,99 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.splitMainContainer = new System.Windows.Forms.SplitContainer();
-            this.tablesContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonsContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.addTableBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.splitMainContainer)).BeginInit();
-            this.splitMainContainer.Panel1.SuspendLayout();
-            this.splitMainContainer.Panel2.SuspendLayout();
-            this.splitMainContainer.SuspendLayout();
-            this.buttonsContainer.SuspendLayout();
+            this.mainSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.TablesContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.TableContainerTitle = new System.Windows.Forms.Label();
+            this.openTableButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
+            this.mainSplitContainer.Panel1.SuspendLayout();
+            this.mainSplitContainer.Panel2.SuspendLayout();
+            this.mainSplitContainer.SuspendLayout();
+            this.TablesContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitMainContainer
+            // mainSplitContainer
             // 
-            this.splitMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitMainContainer.Location = new System.Drawing.Point(0, 0);
-            this.splitMainContainer.Name = "splitMainContainer";
+            this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainSplitContainer.IsSplitterFixed = true;
+            this.mainSplitContainer.Location = new System.Drawing.Point(0, 0);
+            this.mainSplitContainer.Name = "mainSplitContainer";
             // 
-            // splitMainContainer.Panel1
+            // mainSplitContainer.Panel1
             // 
-            this.splitMainContainer.Panel1.Controls.Add(this.tablesContainer);
+            this.mainSplitContainer.Panel1.AccessibleName = "MainContainer";
+            this.mainSplitContainer.Panel1.Controls.Add(this.TablesContainer);
+            this.mainSplitContainer.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
-            // splitMainContainer.Panel2
+            // mainSplitContainer.Panel2
             // 
-            this.splitMainContainer.Panel2.Controls.Add(this.buttonsContainer);
-            this.splitMainContainer.Size = new System.Drawing.Size(512, 326);
-            this.splitMainContainer.SplitterDistance = 397;
-            this.splitMainContainer.TabIndex = 0;
+            this.mainSplitContainer.Panel2.AccessibleName = "ButtonsContainer";
+            this.mainSplitContainer.Panel2.BackColor = System.Drawing.Color.DarkCyan;
+            this.mainSplitContainer.Panel2.Controls.Add(this.openTableButton);
+            this.mainSplitContainer.Panel2.ForeColor = System.Drawing.Color.White;
+            this.mainSplitContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.mainSplitContainer.Size = new System.Drawing.Size(565, 332);
+            this.mainSplitContainer.SplitterDistance = 422;
+            this.mainSplitContainer.TabIndex = 0;
             // 
-            // tablesContainer
+            // TablesContainer
             // 
-            this.tablesContainer.Location = new System.Drawing.Point(0, 0);
-            this.tablesContainer.Name = "tablesContainer";
-            this.tablesContainer.Size = new System.Drawing.Size(394, 326);
-            this.tablesContainer.TabIndex = 0;
+            this.TablesContainer.Controls.Add(this.TableContainerTitle);
+            this.TablesContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TablesContainer.Location = new System.Drawing.Point(0, 0);
+            this.TablesContainer.Name = "TablesContainer";
+            this.TablesContainer.Size = new System.Drawing.Size(422, 332);
+            this.TablesContainer.TabIndex = 0;
             // 
-            // buttonsContainer
+            // TableContainerTitle
             // 
-            this.buttonsContainer.BackColor = System.Drawing.Color.Teal;
-            this.buttonsContainer.Controls.Add(this.addTableBtn);
-            this.buttonsContainer.Location = new System.Drawing.Point(-1, 0);
-            this.buttonsContainer.Name = "buttonsContainer";
-            this.buttonsContainer.Size = new System.Drawing.Size(112, 331);
-            this.buttonsContainer.TabIndex = 0;
+            this.TableContainerTitle.AutoSize = true;
+            this.TablesContainer.SetFlowBreak(this.TableContainerTitle, true);
+            this.TableContainerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TableContainerTitle.Location = new System.Drawing.Point(3, 0);
+            this.TableContainerTitle.Name = "TableContainerTitle";
+            this.TableContainerTitle.Size = new System.Drawing.Size(187, 20);
+            this.TableContainerTitle.TabIndex = 0;
+            this.TableContainerTitle.Text = "Currently Open Tables";
             // 
-            // addTableBtn
+            // openTableButton
             // 
-            this.addTableBtn.BackColor = System.Drawing.Color.CadetBlue;
-            this.addTableBtn.FlatAppearance.BorderSize = 0;
-            this.addTableBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTableBtn.ForeColor = System.Drawing.Color.White;
-            this.addTableBtn.Location = new System.Drawing.Point(2, 3);
-            this.addTableBtn.Margin = new System.Windows.Forms.Padding(2, 3, 3, 0);
-            this.addTableBtn.Name = "addTableBtn";
-            this.addTableBtn.Size = new System.Drawing.Size(107, 39);
-            this.addTableBtn.TabIndex = 0;
-            this.addTableBtn.Text = "Open Table";
-            this.addTableBtn.UseVisualStyleBackColor = false;
+            this.openTableButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openTableButton.ForeColor = System.Drawing.Color.White;
+            this.openTableButton.Location = new System.Drawing.Point(4, 13);
+            this.openTableButton.Name = "openTableButton";
+            this.openTableButton.Size = new System.Drawing.Size(130, 35);
+            this.openTableButton.TabIndex = 0;
+            this.openTableButton.Text = "Open table";
+            this.openTableButton.UseVisualStyleBackColor = true;
+            this.openTableButton.Click += new System.EventHandler(this.OpenNewTable);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(512, 326);
-            this.Controls.Add(this.splitMainContainer);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(565, 332);
+            this.Controls.Add(this.mainSplitContainer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Room";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.splitMainContainer.Panel1.ResumeLayout(false);
-            this.splitMainContainer.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitMainContainer)).EndInit();
-            this.splitMainContainer.ResumeLayout(false);
-            this.buttonsContainer.ResumeLayout(false);
+            this.mainSplitContainer.Panel1.ResumeLayout(false);
+            this.mainSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
+            this.mainSplitContainer.ResumeLayout(false);
+            this.TablesContainer.ResumeLayout(false);
+            this.TablesContainer.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitMainContainer;
-        private System.Windows.Forms.FlowLayoutPanel tablesContainer;
-        private System.Windows.Forms.FlowLayoutPanel buttonsContainer;
-        private System.Windows.Forms.Button addTableBtn;
+        private System.Windows.Forms.SplitContainer mainSplitContainer;
+        private System.Windows.Forms.FlowLayoutPanel TablesContainer;
+        private System.Windows.Forms.Label TableContainerTitle;
+        private System.Windows.Forms.Button openTableButton;
     }
 }
-
