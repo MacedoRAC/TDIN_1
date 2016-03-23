@@ -1,0 +1,12 @@
+C:\Users\mario\Documents\c#\Restaurant\Server\bin\Debug\Server.exe.config
+C:\Users\mario\Documents\c#\Restaurant\Server\bin\Debug\Server.exe
+C:\Users\mario\Documents\c#\Restaurant\Server\bin\Debug\Server.pdb
+C:\Users\mario\Documents\c#\Restaurant\Server\obj\Debug\Server.exe
+C:\Users\mario\Documents\c#\Restaurant\Server\obj\Debug\Server.pdb
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Server\bin\Debug\Server.exe.config
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Server\obj\Debug\Server.exe
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Server\obj\Debug\Server.pdb
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Server\bin\Debug\Server.exe
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Server\bin\Debug\Server.pdb
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Server\bin\Debug\Server.exe.CodeAnalysisLog.xml
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Server\bin\Debug\Server.exe.lastcodeanalysissucceeded
