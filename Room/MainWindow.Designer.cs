@@ -33,6 +33,7 @@
             this.TablesContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.TableContainerTitle = new System.Windows.Forms.Label();
             this.openTableButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             this.mainSplitContainer.Panel2.AccessibleName = "ButtonsContainer";
             this.mainSplitContainer.Panel2.BackColor = System.Drawing.Color.DarkCyan;
+            this.mainSplitContainer.Panel2.Controls.Add(this.exitButton);
             this.mainSplitContainer.Panel2.Controls.Add(this.openTableButton);
             this.mainSplitContainer.Panel2.ForeColor = System.Drawing.Color.White;
             this.mainSplitContainer.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
@@ -96,6 +98,18 @@
             this.openTableButton.UseVisualStyleBackColor = true;
             this.openTableButton.Click += new System.EventHandler(this.OpenNewTable);
             // 
+            // exitButton
+            // 
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.ForeColor = System.Drawing.Color.White;
+            this.exitButton.Location = new System.Drawing.Point(4, 54);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(130, 35);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exit);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,5 +137,6 @@
         private System.Windows.Forms.FlowLayoutPanel TablesContainer;
         private System.Windows.Forms.Label TableContainerTitle;
         private System.Windows.Forms.Button openTableButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }

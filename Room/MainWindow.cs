@@ -12,7 +12,7 @@ namespace Room
 {
     public partial class MainWindow : Form
     {
-        private int openTablesCounter { get; set; } = 0;
+        private int OpenTablesCounter { get; set; } = 0;
 
         public MainWindow()
         {
@@ -36,17 +36,22 @@ namespace Room
 
         private void OpenNewTable(object sender, EventArgs e)
         {
-            openTablesCounter++;
+            OpenTablesCounter++;
             Button newTable = new Button
             {
-                Name = "table_" + openTablesCounter,
-                Text = "Table " + openTablesCounter,
+                Name = "table_" + OpenTablesCounter,
+                Text = "Table " + OpenTablesCounter,
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
                 
             };
             
             TablesContainer.Controls.Add(newTable);
+        }
+
+        private void exit(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

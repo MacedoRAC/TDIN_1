@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment", "Payment\Payment.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printer", "Printer\Printer.csproj", "{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{14291C3C-9516-4483-B64D-449DE7146EEE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{14291C3C-9516-4483-B64D-449DE7146EEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14291C3C-9516-4483-B64D-449DE7146EEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14291C3C-9516-4483-B64D-449DE7146EEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14291C3C-9516-4483-B64D-449DE7146EEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
