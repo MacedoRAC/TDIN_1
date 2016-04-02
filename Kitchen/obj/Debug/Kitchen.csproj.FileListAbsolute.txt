@@ -1,1 +1,0 @@
-c:\users\mario\documents\c#\Restaurant\Kitchen\bin\Debug\Kitchen.exe.config

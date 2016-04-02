@@ -1,8 +1,7 @@
-C:\Users\mario\Documents\c#\Restaurant\Payment\bin\Debug\Payment.exe.config
-C:\Users\mario\Documents\c#\Restaurant\Payment\bin\Debug\Payment.exe
-C:\Users\mario\Documents\c#\Restaurant\Payment\bin\Debug\Payment.pdb
-C:\Users\mario\Documents\c#\Restaurant\Payment\obj\Debug\Payment.csprojResolveAssemblyReference.cache
-C:\Users\mario\Documents\c#\Restaurant\Payment\obj\Debug\Payment.Properties.Resources.resources
-C:\Users\mario\Documents\c#\Restaurant\Payment\obj\Debug\Payment.csproj.GenerateResource.Cache
-C:\Users\mario\Documents\c#\Restaurant\Payment\obj\Debug\Payment.exe
-C:\Users\mario\Documents\c#\Restaurant\Payment\obj\Debug\Payment.pdb
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\bin\Debug\Payment.exe.config
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\bin\Debug\Payment.exe
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\bin\Debug\Payment.pdb
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\obj\Debug\Payment.Properties.Resources.resources
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\obj\Debug\Payment.csproj.GenerateResource.Cache
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\obj\Debug\Payment.exe
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\obj\Debug\Payment.pdb
