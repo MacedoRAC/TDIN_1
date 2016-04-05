@@ -1,6 +1,11 @@
-/Bar/bin
-/Kitchen/bin
-/Payment/bin
-/Printer/bin
-/Room/bin
-/Server/bin
+.vs/
+Kitchen/bin/
+Payment/bin/
+Printer/bin/
+Room/bin/
+Server/obj/
+Kitchen/obj/
+Payment/obj/
+Printer/obj/
+Room/obj/
+Server/obj/
