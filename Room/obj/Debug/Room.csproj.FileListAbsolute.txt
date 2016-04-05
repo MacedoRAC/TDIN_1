@@ -7,3 +7,5 @@ C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.Properties.Resource
 C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.csproj.GenerateResource.Cache
 C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.exe
 C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.pdb
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\bin\Debug\Common.dll
+C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\bin\Debug\Common.pdb
