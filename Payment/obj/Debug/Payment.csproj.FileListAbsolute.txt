@@ -5,3 +5,13 @@ C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\obj\Debug\Payment.Properties.Re
 C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\obj\Debug\Payment.csproj.GenerateResource.Cache
 C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\obj\Debug\Payment.exe
 C:\Users\Gabriel\Documents\GitHub\TDIN_1\Payment\obj\Debug\Payment.pdb
+C:\Users\mario\documents\c#\Restaurant\Payment\bin\Debug\Payment.exe.config
+C:\Users\mario\documents\c#\Restaurant\Payment\obj\Debug\Payment.exe
+C:\Users\mario\documents\c#\Restaurant\Payment\obj\Debug\Payment.pdb
+C:\Users\mario\documents\c#\Restaurant\Payment\bin\Debug\Payment.exe
+C:\Users\mario\documents\c#\Restaurant\Payment\bin\Debug\Payment.pdb
+C:\Users\mario\documents\c#\Restaurant\Payment\bin\Debug\Common.dll
+C:\Users\mario\documents\c#\Restaurant\Payment\bin\Debug\Common.pdb
+C:\Users\mario\documents\c#\Restaurant\Payment\obj\Debug\Payment.csprojResolveAssemblyReference.cache
+C:\Users\mario\documents\c#\Restaurant\Payment\obj\Debug\Payment.Properties.Resources.resources
+C:\Users\mario\documents\c#\Restaurant\Payment\obj\Debug\Payment.csproj.GenerateResource.Cache
