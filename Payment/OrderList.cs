@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
+
+
 
 namespace Payment
 {
-    class OrderList : MarshalByRefObject
+    class OrderList : MarshalByRefObject, IListSingleton
     {
         private List<Order> list;
 
@@ -15,18 +18,18 @@ namespace Payment
             list = new List<Order>();
         }
 
-        public void addOrder(Order o)
+        public void AddOrder(Order o)
         {
             list.Add(o);
         }
 
-        public List<Order> getList()
+        public List<Order> GetList()
         {
             return list;
         }
 
 
-        public List<Order> getTableOrders(int table)
+        public List<Order> GetTableOrders(int table)
         {
             List<Order> tables = new List<Order>();
 
@@ -40,7 +43,7 @@ namespace Payment
 
         }
 
-        public float getTablePrice(int table)
+        public float GetTablePrice(int table)
         {
             float total = 0f;
 
