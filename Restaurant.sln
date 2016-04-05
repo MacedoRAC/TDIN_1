@@ -1,15 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kitchen_Bar", "Kitchen\Kitchen_Bar.csproj", "{3744645A-5B87-40F6-91B9-F73215DAC120}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Room", "Room\Room.csproj", "{DCFEE121-1052-4AFC-9C87-D694D31CAD02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment", "Payment\Payment.csproj", "{B63F73C6-16CE-471A-8F7E-F98B1A9898DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printer", "Printer\Printer.csproj", "{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{9EE38943-7392-407F-A4EA-E4A695ED532A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{9EE38943-7392-407F-A4EA-E4A695ED532A}"
 EndProject

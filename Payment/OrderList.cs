@@ -22,6 +22,7 @@ namespace Payment
 
         public List<Order> GetList()
         {
+            Console.WriteLine("cenas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             return list;
         }
 

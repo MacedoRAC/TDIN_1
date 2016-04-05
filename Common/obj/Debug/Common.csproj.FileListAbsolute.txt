@@ -1,5 +1,0 @@
-C:\Users\mario\Documents\c#\Restaurant\Common\bin\Debug\Common.dll
-C:\Users\mario\Documents\c#\Restaurant\Common\bin\Debug\Common.pdb
-C:\Users\mario\Documents\c#\Restaurant\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
-C:\Users\mario\Documents\c#\Restaurant\Common\obj\Debug\Common.dll
-C:\Users\mario\Documents\c#\Restaurant\Common\obj\Debug\Common.pdb

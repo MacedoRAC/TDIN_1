@@ -1,9 +1,0 @@
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\bin\Debug\Room.exe.config
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\bin\Debug\Room.exe
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\bin\Debug\Room.pdb
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.csprojResolveAssemblyReference.cache
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.MainWindow.resources
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.Properties.Resources.resources
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.csproj.GenerateResource.Cache
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.exe
-C:\Users\Gabriel\Documents\GitHub\TDIN_1\Room\obj\Debug\Room.pdb
