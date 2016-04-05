@@ -3,4 +3,9 @@ Kitchen/bin/
 Payment/bin/
 Printer/bin/
 Room/bin/
-Server/bin/
+Server/obj/
+Kitchen/obj/
+Payment/obj/
+Printer/obj/
+Room/obj/
+Server/obj/
