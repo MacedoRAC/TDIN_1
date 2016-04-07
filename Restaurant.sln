@@ -1,35 +1,19 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kitchen_Bar", "Kitchen\Kitchen_Bar.csproj", "{3744645A-5B87-40F6-91B9-F73215DAC120}"
+Microsoft Visual Studio Solution File, Format Version 14.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{CD9319B2-6E8C-4CFF-96DD-84965CC61CD7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Room", "Room\Room.csproj", "{DCFEE121-1052-4AFC-9C87-D694D31CAD02}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListSingleton", "ListSingleton\ListSingleton.csproj", "{75AC72CE-C1E7-4876-BBC2-BDE6D6396A5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment", "Payment\Payment.csproj", "{B63F73C6-16CE-471A-8F7E-F98B1A9898DD}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printer", "Printer\Printer.csproj", "{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{5E7BBBA5-07B0-4146-88EF-45161D13FB42}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{9EE38943-7392-407F-A4EA-E4A695ED532A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{CD9319B2-6E8C-4CFF-96DD-84965CC61CD7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{5E7BBBA5-07B0-4146-88EF-45161D13FB42}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListSingleton", "ListSingleton\ListSingleton.csproj", "{75AC72CE-C1E7-4876-BBC2-BDE6D6396A5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,38 +21,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3744645A-5B87-40F6-91B9-F73215DAC120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3744645A-5B87-40F6-91B9-F73215DAC120}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3744645A-5B87-40F6-91B9-F73215DAC120}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3744645A-5B87-40F6-91B9-F73215DAC120}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DCFEE121-1052-4AFC-9C87-D694D31CAD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DCFEE121-1052-4AFC-9C87-D694D31CAD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DCFEE121-1052-4AFC-9C87-D694D31CAD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DCFEE121-1052-4AFC-9C87-D694D31CAD02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B63F73C6-16CE-471A-8F7E-F98B1A9898DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B63F73C6-16CE-471A-8F7E-F98B1A9898DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B63F73C6-16CE-471A-8F7E-F98B1A9898DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B63F73C6-16CE-471A-8F7E-F98B1A9898DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A44B5E1B-BA9C-4396-9ED6-40E53F4817DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD9319B2-6E8C-4CFF-96DD-84965CC61CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CD9319B2-6E8C-4CFF-96DD-84965CC61CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD9319B2-6E8C-4CFF-96DD-84965CC61CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD9319B2-6E8C-4CFF-96DD-84965CC61CD7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E7BBBA5-07B0-4146-88EF-45161D13FB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E7BBBA5-07B0-4146-88EF-45161D13FB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E7BBBA5-07B0-4146-88EF-45161D13FB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E7BBBA5-07B0-4146-88EF-45161D13FB42}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75AC72CE-C1E7-4876-BBC2-BDE6D6396A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75AC72CE-C1E7-4876-BBC2-BDE6D6396A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75AC72CE-C1E7-4876-BBC2-BDE6D6396A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75AC72CE-C1E7-4876-BBC2-BDE6D6396A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7BBBA5-07B0-4146-88EF-45161D13FB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7BBBA5-07B0-4146-88EF-45161D13FB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7BBBA5-07B0-4146-88EF-45161D13FB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7BBBA5-07B0-4146-88EF-45161D13FB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
