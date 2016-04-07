@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 
 public class ListSingleton : MarshalByRefObject, IListSingleton {
-  ArrayList itemsList;
+  List<Order> itemsList;
   public event AlterDelegate alterEvent;
   int type = 2;
 
   public ListSingleton() {
     Console.WriteLine("Constructor called.");
-    itemsList = new ArrayList();
-    Item item = new Item(1, "Peter", "A comment");
+    itemsList = new List<Order>();
+    Order item = new Order();
     itemsList.Add(item);
   }
 
@@ -18,7 +19,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton {
     return null;
   }
 
-  public ArrayList GetList() {
+  public List<Order> GetList() {
     Console.WriteLine("GetList() called.");
     return itemsList;
   }
@@ -27,17 +28,17 @@ public class ListSingleton : MarshalByRefObject, IListSingleton {
     return type++;
   }
 
-  public void AddItem(Item item) {
+  public void AddItem(Order item) {
     itemsList.Add(item);
     NotifyClients(Operation.New, item);
   }
 
   public void ChangeComment(int type, string comment) {
-    Item nitem = null;
+    Order nitem = null;
 
-    foreach (Item it in itemsList) {
-      if (it.Type == type) {
-        it.Comment = comment;
+    foreach (Order it in itemsList) {
+      if (it.Table == type) {
+        it.Description = comment;
         nitem = it;
         break;
       }
@@ -45,7 +46,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton {
     NotifyClients(Operation.Change, nitem); 
   }
 
-  void NotifyClients(Operation op, Item item) {
+  void NotifyClients(Operation op, Order item) {
     if (alterEvent != null) {
       Delegate[] invkList = alterEvent.GetInvocationList();
 

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Common;
-
 namespace Room
 {
     internal class OrderList: MarshalByRefObject, IListSingleton
@@ -10,9 +8,28 @@ namespace Room
         {
         }
 
-        void IListSingleton.AddOrder(Order o)
+        event AlterDelegate IListSingleton.alterEvent
         {
-          //  throw new NotImplementedException();
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        void IListSingleton.AddItem(Order item)
+        {
+            throw new NotImplementedException();
+        }
+        
+
+        void IListSingleton.ChangeComment(int type, string comment)
+        {
+            throw new NotImplementedException();
         }
 
         List<Order> IListSingleton.GetList()
@@ -21,16 +38,9 @@ namespace Room
             return new List<Order>();
         }
 
-        List<Order> IListSingleton.GetTableOrders(int table)
+        int IListSingleton.GetNewType()
         {
-            // throw new NotImplementedException();
-            return new List<Order>();
-        }
-
-        float IListSingleton.GetTablePrice(int table)
-        {
-            // throw new NotImplementedException();
-            return 1f;
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 
@@ -13,6 +12,19 @@ namespace Payment
         OrderList()
         {
             list = new List<Order>();
+        }
+
+        event AlterDelegate IListSingleton.alterEvent
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public void AddOrder(Order o)
@@ -54,5 +66,24 @@ namespace Payment
             return total;
         }
 
+        void IListSingleton.AddItem(Order item)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IListSingleton.ChangeComment(int type, string comment)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Order> IListSingleton.GetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        int IListSingleton.GetNewType()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
