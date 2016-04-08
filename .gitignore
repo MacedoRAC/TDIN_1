@@ -11,3 +11,5 @@ Printer/obj/
 Room/obj/
 Server/obj/
 Common/obj/
+Client/obj/
+ListSingleton/obj
