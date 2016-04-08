@@ -13,12 +13,10 @@ public class Order {
 
     public Order(){    }
 
-    public Order(int table, string description)
+    public Order(int table)
     {
         Table = table;
-        Description = description;
     }
-
 
 }
 

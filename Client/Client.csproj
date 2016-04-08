@@ -61,26 +61,14 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClientWindow.Designer.cs">
-      <DependentUpon>ClientWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CommentDlg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CommentDlg.Designer.cs">
-      <DependentUpon>CommentDlg.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainClass.cs" />
+    <Compile Include="RemoteNew.cs" />
+    <Compile Include="Room\RoomMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room\RoomMainWindow.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ClientWindow.resx">
-      <DependentUpon>ClientWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CommentDlg.resx">
-      <DependentUpon>CommentDlg.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Room\RoomMainWindow.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

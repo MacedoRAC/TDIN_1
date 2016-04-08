@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.Room;
+using System;
 using System.Windows.Forms;
 
 namespace Client {
@@ -10,7 +11,7 @@ namespace Client {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new ClientWindow());
+      Application.Run(new RoomMainWindow());
     }
   }
 }

@@ -1,0 +1,11 @@
+C:\Users\mario\documents\c#\Restaurant\Client\bin\Debug\Client.exe.config
+C:\Users\mario\documents\c#\Restaurant\Client\bin\Debug\Client.exe
+C:\Users\mario\documents\c#\Restaurant\Client\bin\Debug\Client.pdb
+C:\Users\mario\documents\c#\Restaurant\Client\bin\Debug\Common.dll
+C:\Users\mario\documents\c#\Restaurant\Client\bin\Debug\Common.pdb
+C:\Users\mario\documents\c#\Restaurant\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\mario\documents\c#\Restaurant\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\mario\documents\c#\Restaurant\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\mario\documents\c#\Restaurant\Client\obj\Debug\Client.exe
+C:\Users\mario\documents\c#\Restaurant\Client\obj\Debug\Client.pdb
+C:\Users\mario\documents\c#\Restaurant\Client\obj\Debug\Client.Room.RoomMainWindow.resources
