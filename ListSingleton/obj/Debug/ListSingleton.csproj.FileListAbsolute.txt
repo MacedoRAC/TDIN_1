@@ -1,7 +1,0 @@
-C:\Users\mario\documents\c#\Restaurant\ListSingleton\bin\Debug\ListSingleton.dll
-C:\Users\mario\documents\c#\Restaurant\ListSingleton\bin\Debug\ListSingleton.pdb
-C:\Users\mario\documents\c#\Restaurant\ListSingleton\bin\Debug\Common.dll
-C:\Users\mario\documents\c#\Restaurant\ListSingleton\bin\Debug\Common.pdb
-C:\Users\mario\documents\c#\Restaurant\ListSingleton\obj\Debug\ListSingleton.csprojResolveAssemblyReference.cache
-C:\Users\mario\documents\c#\Restaurant\ListSingleton\obj\Debug\ListSingleton.dll
-C:\Users\mario\documents\c#\Restaurant\ListSingleton\obj\Debug\ListSingleton.pdb
