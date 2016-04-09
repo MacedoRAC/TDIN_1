@@ -44,57 +44,28 @@ public class Order
 
 [Serializable]
 public class Meal {
-    public Dictionary<string, Order> orders{ get; set; }
+    public List<Order> orders{ get; set; }
     public int State { get; set; }
     public int Table { get; set; }
 
-    public Meal(){ orders = new Dictionary<string, Order>();    }
+    public Meal(){ orders = new List<Order>();    }
 
     public Meal(int num)
     {
-        orders = new Dictionary<string, Order>();
+        orders = new List<Order>();
         Table = num;
     }
 
-    public void addOrder(string name, Order o)
+    public void addOrder(Order o)
     {
-        orders.Add(name, o);
+        orders.Add(o);
     }
-
-    public int incrementOrder(string name)
-    {
-        Order o;
-        if (orders.TryGetValue(name, out o))
-        {
-            o.Quantity = o.Quantity + 1;
-            orders.Remove(name);
-            orders.Add(name, o);
-            return o.Quantity;
-        }
-        else
-            throw new FieldAccessException();
-    }
-
-    public int Order(string name)
-    {
-        Order o;
-        if (orders.TryGetValue(name, out o))
-        {            
-            o.Quantity = o.Quantity - 1;
-            orders.Remove(name);
-            if (o.Quantity > 0)
-                orders.Add(name, o);
-            return o.Quantity;
-        }
-        else
-            throw new FieldAccessException();
-    }
-
+    
     public float totalPrice()
     {
         float price = 0f;
-        foreach (KeyValuePair<string, Order> o in orders)
-            price += o.Value.getTotalPrice();
+        foreach (Order o in orders)
+            price += o.getTotalPrice();
         return price;
     }
 
