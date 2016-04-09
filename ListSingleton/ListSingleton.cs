@@ -11,8 +11,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton {
   public ListSingleton() {
     Console.WriteLine("Constructor called.");
     itemsList = new List<Meal>();
-    Meal item = new Meal();
-    itemsList.Add(item);
+        itemsList.Add(new Meal());
   }
 
   public override object InitializeLifetimeService() {

@@ -7,22 +7,22 @@ namespace Client.Room
 {
     public partial class RoomMainWindow : Form
     {
-        private int OpenTablesCounter { get; set; } = 0;
+        private int OpenMealsCounter { get; set; } = 0;
         delegate void ControlsAddDelegate(Control lvItem);
         delegate void ChCommDelegate(Meal item);
         IListSingleton listServer;
         AlterEventRepeater evRepeater;
-        List<Meal> orders;
+        List<Meal> meals;
 
         public RoomMainWindow()
         {
             RemotingConfiguration.Configure("Client.exe.config", false);
             InitializeComponent();
             listServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
-            orders = listServer.GetList();
             evRepeater = new AlterEventRepeater();
             evRepeater.alterEvent += new AlterDelegate(DoAlterations);
             listServer.alterEvent += new AlterDelegate(evRepeater.Repeater);
+            meals = listServer.GetList();
         }
 
         public override object InitializeLifetimeService()
@@ -30,11 +30,12 @@ namespace Client.Room
             return null;
         }
 
-        
-        private void RoomMainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        private void RoomMainWindow_Load(object sender, EventArgs e)
         {
-            listServer.alterEvent -= new AlterDelegate(evRepeater.Repeater);
-            evRepeater.alterEvent -= new AlterDelegate(DoAlterations);
+            foreach (Meal it in meals)
+            {
+                AddMealsToMealsContainer();
+            }
         }
 
         public void DoAlterations(Operation op, Meal item)
@@ -45,8 +46,8 @@ namespace Client.Room
             switch (op)
             {
                 case Operation.New:
-                    ctrlsAdd = new ControlsAddDelegate(TablesContainer.Controls.Add);
-                    Button ctrlItem = CreatedNewTableButton();
+                    ctrlsAdd = new ControlsAddDelegate(MealsContainer.Controls.Add);
+                    Button ctrlItem = CreatedNewMealButton();
                     BeginInvoke(ctrlsAdd, new object[] { ctrlItem });
                     break;
                 /*case Operation.Change:
@@ -66,34 +67,25 @@ namespace Client.Room
 
         }
 
-        private void RoomMainWindow_Load(object sender, EventArgs e)
+        private void OpenNewMeal(object sender, EventArgs e)
         {
-            foreach (Meal it in orders)
-            {
-                AddTableToTablesContainer();
-            }
+            listServer.AddItem(new Meal(OpenMealsCounter + 1));
         }
 
-        private void OpenNewTable(object sender, EventArgs e)
+        private void AddMealsToMealsContainer()
         {
-            listServer.AddItem(new Meal(OpenTablesCounter + 1));
-            //AddTableToTablesContainer();
+            var newMeal = CreatedNewMealButton();
+
+            MealsContainer.Controls.Add(newMeal);
         }
 
-        private void AddTableToTablesContainer()
+        private Button CreatedNewMealButton ()
         {
-            var newTable = CreatedNewTableButton();
-
-            TablesContainer.Controls.Add(newTable);
-        }
-
-        private Button CreatedNewTableButton ()
-        {
-            OpenTablesCounter++;
+            OpenMealsCounter++;
             return new Button
             {
-                Name = "table_" + OpenTablesCounter,
-                Text = "Meal " + OpenTablesCounter,
+                Name = "meal_" + OpenMealsCounter,
+                Text = "Meal " + OpenMealsCounter,
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
 
@@ -102,7 +94,16 @@ namespace Client.Room
 
         private void exit(object sender, EventArgs e)
         {
+            listServer.alterEvent -= new AlterDelegate(evRepeater.Repeater);
+            evRepeater.alterEvent -= new AlterDelegate(DoAlterations);
+
             Application.Exit();
+        }
+
+        private void RoomMainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            listServer.alterEvent -= new AlterDelegate(evRepeater.Repeater);
+            evRepeater.alterEvent -= new AlterDelegate(DoAlterations);
         }
     }
 }
