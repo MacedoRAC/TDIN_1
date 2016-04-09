@@ -42,6 +42,7 @@ namespace Client.Room
             // 
             // addOrderBtn
             // 
+            this.addOrderBtn.AccessibleName = "";
             this.addOrderBtn.BackColor = System.Drawing.Color.Transparent;
             this.addOrderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen;
             this.addOrderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
@@ -51,8 +52,9 @@ namespace Client.Room
             this.addOrderBtn.Name = "addOrderBtn";
             this.addOrderBtn.Size = new System.Drawing.Size(92, 33);
             this.addOrderBtn.TabIndex = 0;
-            this.addOrderBtn.Text = "Add";
+            this.addOrderBtn.Text = "OK";
             this.addOrderBtn.UseVisualStyleBackColor = false;
+            this.addOrderBtn.Click += new System.EventHandler(this.Add);
             // 
             // cancelBtn
             // 
@@ -122,6 +124,7 @@ namespace Client.Room
             // 
             // AddOrderDialog
             // 
+            this.AcceptButton = this.addOrderBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;

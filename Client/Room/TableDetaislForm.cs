@@ -30,7 +30,14 @@ namespace Client.Room
         private void OpenNewOrderDialog(object sender, EventArgs e)
         {
             var orderDialog = new AddOrderDialog(Products);
-            orderDialog.ShowDialog();
+
+            using (orderDialog)
+            {
+                if (orderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var newOrder = new Order(orderDialog.GetQuantity(), orderDialog.GetProduct());
+                }
+            }
         }
     }
 }
