@@ -112,7 +112,7 @@ namespace Client.Room
             int tableId = int.Parse(((Button)sender).Tag.ToString());
             Table table = tables[tableId];
 
-            var tableDetails = new TableDetaislForm(table);
+            var tableDetails = new TableDetaislForm(table, listServer.GetMenu());
             tableDetails.Text = "Table Number " + (tableId+1);
             tableDetails.Show();
         }

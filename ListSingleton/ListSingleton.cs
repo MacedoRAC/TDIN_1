@@ -10,12 +10,11 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     public int Type = 2;
     Dictionary<string, Product> menu;
 
-    public Dictionary<string, Product> menu{  get; }
-
     public ListSingleton()
     {
         Console.WriteLine("Constructor called.");
         TablesList = new List<Table>();
+        menu = new Dictionary<string, Product>();
         initializeMenu();
     }
 
@@ -78,7 +77,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         menu.Add("Água", new Product(0.7f, "Água"));
         menu.Add("Coca-cola", new Product(1f, "Coca-cola"));
         menu.Add("Super Bock", new Product(0.7f, "Super Bock"));
-        menu.Add("Vinho Bramco da Casa", new Product(0.7f, "Vinho Branco da Casa"));
+        menu.Add("Vinho Branco da Casa", new Product(0.7f, "Vinho Branco da Casa"));
         menu.Add("Vinho Tinto da Casa", new Product(0.7f, "Vinho Tinto da Casa"));
 
         menu.Add("Bacalhau com Natas", new Product(0.7f, "Bacalhau com Natas"));
@@ -90,8 +89,5 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         menu.Add("Leite Creme", new Product(0.7f, "Leite Creme"));
         menu.Add("Bolo do Bolacha", new Product(0.7f, "Bolo de Bolacha"));
         menu.Add("Mousse de Manga", new Product(0.7f, "Mousse de Manga"));
-
-
-
     }
 }

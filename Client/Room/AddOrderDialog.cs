@@ -12,16 +12,16 @@ namespace Client.Room
 {
     public partial class AddOrderDialog : Form
     {
-        Dictionary<string, string> products;
+        Dictionary<string, Product> products;
 
-        public AddOrderDialog(Dictionary<string, string> products)
+        public AddOrderDialog(Dictionary<string, Product> products)
         {
             this.products = products;
             InitializeComponent();
             
             this.productsComboBox.DataSource = new BindingSource(products, null);
-            this.productsComboBox.ValueMember = "Key";
-            this.productsComboBox.DisplayMember = "Value";
+            this.productsComboBox.ValueMember = "Value";
+            this.productsComboBox.DisplayMember = "Key";
         }
 
         private void Cancel(object sender, EventArgs e)

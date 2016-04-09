@@ -81,6 +81,7 @@ public interface IListSingleton {
 
 
   List<Table> GetTablesList();
+  Dictionary<string, Product> GetMenu();
   int GetNewType();
   void AddTable(Table table);
 }

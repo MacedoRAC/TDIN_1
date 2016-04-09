@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting;
 using System.Windows.Forms;
 
 namespace Client.Room
@@ -7,10 +8,12 @@ namespace Client.Room
     public partial class TableDetaislForm : Form
     {
         protected Table Table;
+        protected Dictionary<string, Product> Products;
 
-        public TableDetaislForm(Table table)
+        public TableDetaislForm(Table table, Dictionary<string, Product> products)
         {
             Table = table;
+            Products = products;
             InitializeComponent();
         }
 
@@ -26,12 +29,7 @@ namespace Client.Room
 
         private void OpenNewOrderDialog(object sender, EventArgs e)
         {
-            var listOfProducts = new Dictionary<string, string>()
-            {
-                { "1", "Potatoes" },
-                { "2", "Soda" }
-            };
-            var orderDialog = new AddOrderDialog(listOfProducts);
+            var orderDialog = new AddOrderDialog(Products);
             orderDialog.ShowDialog();
         }
     }
