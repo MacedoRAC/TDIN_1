@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 [Serializable]
 public class Product
 {
@@ -77,8 +78,10 @@ public delegate void AlterDelegate(Operation op, Table item);
 
 public interface IListSingleton {
   event AlterDelegate AlterEvent;
+  Dictionary<string, Product> menu { get; }
 
-  List<Table> GetTablesList();
+
+    List<Table> GetTablesList();
   int GetNewType();
   void AddTable(Table table);
 }
