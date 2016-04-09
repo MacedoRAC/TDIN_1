@@ -12,6 +12,7 @@ namespace Client.Room
         delegate void ChCommDelegate(Table item);
         IListSingleton listServer;
         AlterEventRepeater evRepeater;
+        OrderEventRepeater orderRepeater;
         List<Table> tables;
         public int MaxNumberOfTables = 15;
 
@@ -23,6 +24,12 @@ namespace Client.Room
             evRepeater = new AlterEventRepeater();
             evRepeater.alterEvent += new AlterDelegate(DoAlterations);
             listServer.AlterEvent += new AlterDelegate(evRepeater.Repeater);
+
+            orderRepeater = new OrderEventRepeater();
+            orderRepeater.alterEvent += new OrderDelegate(DoAlterations);
+            listServer.OrderEvent += new OrderDelegate(orderRepeater.Repeater);
+
+
             tables = listServer.GetTablesList();
         }
 
@@ -62,6 +69,26 @@ namespace Client.Room
                     break;*/
             }
         }
+
+        public void DoAlterations(Operation op, Order item, int tableId)
+        {
+            ControlsAddDelegate ctrlsAdd;
+            //ChCommDelegate chComm;
+
+            switch (op)
+            {
+                case Operation.New:
+                    ctrlsAdd = new ControlsAddDelegate(TablesContainer.Controls.Add);
+                    Button ctrlItem = CreatedNewTableButton();
+                    BeginInvoke(ctrlsAdd, new object[] { ctrlItem });
+                    break;
+                    /*case Operation.Change:
+                        chComm = new ChCommDelegate(ChangeAItem);
+                        BeginInvoke(chComm, new object[] { item });
+                        break;*/
+            }
+        }
+
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {

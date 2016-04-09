@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
 [Serializable]
 public class Product
 {
@@ -21,6 +20,19 @@ public class Product
     {
         return UnitPrice * (100 + IVA) / 100;
     }
+
+    public bool Equals(Product p)
+    {
+        // If parameter is null return false:
+        if ((object)p == null)
+        {
+            return false;
+        }
+
+        // Return true if the fields match:
+        return (UnitPrice == p.UnitPrice) && (Description == p.Description) && (IVA == p.IVA);
+    }
+
 }
 
 [Serializable]
@@ -28,7 +40,8 @@ public class Order
 {
     public int Quantity { get; set; }
     public Product Product { get; set; }
-    
+    public int State { get; set; }
+
     public Order (int quantity, Product product)
     {
         Quantity = quantity;
@@ -40,13 +53,24 @@ public class Order
         return Quantity * Product.GetPriceWithIva();
     }
 
+    public bool Equals(Order o)
+    {
+        // If parameter is null return false:
+        if ((object)o == null)
+        {
+            return false;
+        }
+
+        // Return true if the fields match:
+        return (Quantity == o.Quantity) && (Product.Equals(o.Product));
+    }
+
 }
 
 
 [Serializable]
 public class Table {
     public List<Order> orders{ get; set; }
-    public int State { get; set; }
     public bool Free { get; set; }
     public int ID { get; set; }
 
@@ -70,15 +94,41 @@ public class Table {
         return price;
     }
 
+    public bool Equals(Table t)
+    {
+        // If parameter is null return false:
+        if ((object)t == null)
+        {
+            return false;
+        }
+
+        // Return true if the fields match:
+        return (ID == t.ID);
+    }
+
+    public bool Equals(int i)
+    {
+        // If parameter is null return false:
+        if ((object)i == null)
+        {
+            return false;
+        }
+
+        // Return true if the fields match:
+        return (ID == i);
+    }
+
 }
 
 public enum Operation { New, Change };
 
 public delegate void AlterDelegate(Operation op, Table item);
 
+public delegate void OrderDelegate(Operation op, Order item, int tableId);
+
 public interface IListSingleton {
   event AlterDelegate AlterEvent;
-
+  event OrderDelegate OrderEvent;
 
   List<Table> GetTablesList();
   Dictionary<string, Product> GetMenu();
@@ -97,4 +147,20 @@ public class AlterEventRepeater : MarshalByRefObject {
     if (alterEvent != null)
       alterEvent(op, item);
   }
+}
+
+public class OrderEventRepeater : MarshalByRefObject
+{
+    public event OrderDelegate alterEvent;
+
+    public override object InitializeLifetimeService()
+    {
+        return null;
+    }
+
+    public void Repeater(Operation op, Order order, int tableId)
+    {
+        if (alterEvent != null)
+            alterEvent(op, order, tableId);
+    }
 }
