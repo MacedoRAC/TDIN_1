@@ -103,6 +103,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
 
     private void initializeMenu()
     {
+        menu = new Dictionary<string, Product>();
         menu.Add("Água", new Product(0.7f, "Água"));
         menu.Add("Coca-cola", new Product(1f, "Coca-cola"));
         menu.Add("Super Bock", new Product(0.7f, "Super Bock"));
