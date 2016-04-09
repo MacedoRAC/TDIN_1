@@ -86,6 +86,7 @@
             this.addOrderBtn.TabIndex = 1;
             this.addOrderBtn.Text = "Add Order";
             this.addOrderBtn.UseVisualStyleBackColor = false;
+            this.addOrderBtn.Click += new System.EventHandler(this.OpenNewOrderDialog);
             // 
             // editOrderBtn
             // 
@@ -135,7 +136,7 @@
             this.deleteOrderBtn.Text = "Delete Order";
             this.deleteOrderBtn.UseVisualStyleBackColor = false;
             // 
-            // MealDetaislForm
+            // TableDetaislForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,7 +148,7 @@
             this.Controls.Add(this.addOrderBtn);
             this.Controls.Add(this.ListViewOrders);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MealDetaislForm";
+            this.Name = "TableDetaislForm";
             this.Text = "Meal Number ";
             this.ResumeLayout(false);
 

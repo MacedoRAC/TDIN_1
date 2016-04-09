@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Client.Room
@@ -21,6 +22,17 @@ namespace Client.Room
         private void CloseWindow(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void OpenNewOrderDialog(object sender, EventArgs e)
+        {
+            var listOfProducts = new Dictionary<string, string>()
+            {
+                { "1", "Potatoes" },
+                { "2", "Soda" }
+            };
+            var orderDialog = new AddOrderDialog(listOfProducts);
+            orderDialog.ShowDialog();
         }
     }
 }

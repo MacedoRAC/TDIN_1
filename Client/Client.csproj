@@ -65,6 +65,12 @@
   <ItemGroup>
     <Compile Include="MainClass.cs" />
     <Compile Include="RemoteNew.cs" />
+    <Compile Include="Room\AddOrderDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room\AddOrderDialog.Designer.cs">
+      <DependentUpon>AddOrderDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Room\TableDetaislForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Room\RoomMainWindow.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Room\AddOrderDialog.resx">
+      <DependentUpon>AddOrderDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Room\TableDetaislForm.resx">
       <DependentUpon>TableDetaislForm.cs</DependentUpon>
     </EmbeddedResource>
