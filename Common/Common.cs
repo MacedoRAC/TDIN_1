@@ -50,8 +50,6 @@ public class Table {
     public bool Free { get; set; }
     public int ID { get; set; }
 
-    public Dictionary<string, Product> menu { get; }
-
     public Table(int id)
     {
         ID = id;
@@ -72,28 +70,6 @@ public class Table {
         return price;
     }
 
-    private void initializeMenu()
-    {
-        menu.Add("Água", new Product(0.7f, "Água"));
-        menu.Add("Coca-cola", new Product(1f, "Coca-cola"));
-        menu.Add("Super Bock", new Product(0.7f, "Super Bock"));
-        menu.Add("Vinho Bramco da Casa", new Product(0.7f, "Vinho Branco da Casa"));
-        menu.Add("Vinho Tinto da Casa", new Product(0.7f, "Vinho Tinto da Casa"));
-
-        menu.Add("Bacalhau com Natas", new Product(0.7f, "Bacalhau com Natas"));
-        menu.Add("Vitela Mendinha", new Product(0.7f, "Vitela Mendinha"));
-        menu.Add("Francesinha Especial", new Product(0.7f, "Francesinha Especial"));
-        menu.Add("Leitão no forno", new Product(0.7f, "Leitão no forno"));
-        menu.Add("Sandes de Leitão", new Product(0.7f, "Sandes de Leitão"));
-
-        menu.Add("Leite Creme", new Product(0.7f, "Leite Creme"));
-        menu.Add("Bolo do Bolacha", new Product(0.7f, "Bolo de Bolacha"));
-        menu.Add("Mousse de Manga", new Product(0.7f, "Mousse de Manga"));
-
-
-
-    }
-
 }
 
 public enum Operation { New, Change };
@@ -102,8 +78,10 @@ public delegate void AlterDelegate(Operation op, Table item);
 
 public interface IListSingleton {
   event AlterDelegate AlterEvent;
+  Dictionary<string, Product> menu { get; }
 
-  List<Table> GetTablesList();
+
+    List<Table> GetTablesList();
   int GetNewType();
   void AddTable(Table table);
 }
