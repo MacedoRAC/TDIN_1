@@ -21,7 +21,7 @@ namespace Client.Room
             listServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
             evRepeater = new AlterEventRepeater();
             evRepeater.alterEvent += new AlterDelegate(DoAlterations);
-            listServer.alterEvent += new AlterDelegate(evRepeater.Repeater);
+            listServer.AlterEvent += new AlterDelegate(evRepeater.Repeater);
             meals = listServer.GetList();
         }
 
@@ -82,19 +82,35 @@ namespace Client.Room
         private Button CreatedNewMealButton ()
         {
             OpenMealsCounter++;
-            return new Button
+            Button newMealBtn =  new Button
             {
                 Name = "meal_" + OpenMealsCounter,
                 Text = "Meal " + OpenMealsCounter,
+                Tag = OpenMealsCounter-1,
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
 
             };
+            newMealBtn.Click += new EventHandler(OpenMealDetails);
+
+            return newMealBtn;
+        }
+
+        public void OpenMealDetails(object sender, EventArgs e)
+        {
+            meals = listServer.GetList();
+
+            int mealId = int.Parse(((Button)sender).Tag.ToString());
+            Meal meal = meals[mealId];
+
+            var mealDetails = new MealDetaislForm(meal, mealId);
+            mealDetails.Text = "Meal Number " + (mealId+1);
+            mealDetails.Show();
         }
 
         private void exit(object sender, EventArgs e)
         {
-            listServer.alterEvent -= new AlterDelegate(evRepeater.Repeater);
+            listServer.AlterEvent -= new AlterDelegate(evRepeater.Repeater);
             evRepeater.alterEvent -= new AlterDelegate(DoAlterations);
 
             Application.Exit();
@@ -102,7 +118,7 @@ namespace Client.Room
 
         private void RoomMainWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            listServer.alterEvent -= new AlterDelegate(evRepeater.Repeater);
+            listServer.AlterEvent -= new AlterDelegate(evRepeater.Repeater);
             evRepeater.alterEvent -= new AlterDelegate(DoAlterations);
         }
     }

@@ -74,6 +74,7 @@
             this.MealsContainer.Name = "MealsContainer";
             this.MealsContainer.Size = new System.Drawing.Size(422, 332);
             this.MealsContainer.TabIndex = 0;
+            this.AutoScroll = true;
             // 
             // MealsContainerTitle
             // 
