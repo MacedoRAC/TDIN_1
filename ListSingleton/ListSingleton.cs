@@ -5,15 +5,14 @@ using System.Threading;
 
 public class ListSingleton : MarshalByRefObject, IListSingleton
 {
-    List<Meal> ItemsList;
+    List<Table> TablesList;
     public event AlterDelegate AlterEvent;
     public int Type = 2;
 
     public ListSingleton()
     {
         Console.WriteLine("Constructor called.");
-        ItemsList = new List<Meal>();
-
+        TablesList = new List<Table>();
     }
 
     public override object InitializeLifetimeService()
@@ -21,10 +20,10 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         return null;
     }
 
-    public List<Meal> GetList()
+    public List<Table> GetTablesList()
     {
         Console.WriteLine("GetList() called.");
-        return ItemsList;
+        return TablesList;
     }
 
     public int GetNewType()
@@ -32,28 +31,13 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         return Type++;
     }
 
-    public void AddItem(Meal item)
+    public void AddTable(Table table)
     {
-        ItemsList.Add(item);
-        NotifyClients(Operation.New, item);
+        TablesList.Add(table);
+        NotifyClients(Operation.New, table);
     }
 
-    public void ChangeComment(int type, string comment)
-    {
-        Meal nitem = null;
-
-        foreach (Meal it in ItemsList)
-        {
-            if (it.Table == type)
-            {
-                nitem = it;
-                break;
-            }
-        }
-        NotifyClients(Operation.Change, nitem);
-    }
-
-    void NotifyClients(Operation op, Meal item)
+    void NotifyClients(Operation op, Table item)
     {
         if (AlterEvent != null)
         {

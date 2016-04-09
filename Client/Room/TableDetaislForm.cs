@@ -3,15 +3,13 @@ using System.Windows.Forms;
 
 namespace Client.Room
 {
-    public partial class MealDetaislForm : Form
+    public partial class TableDetaislForm : Form
     {
-        protected Meal Meal;
-        public string MealId { get; set; }
+        protected Table Table;
 
-        public MealDetaislForm(Meal meal, int mealId)
+        public TableDetaislForm(Table table)
         {
-            Meal = meal;
-            MealId = mealId.ToString();
+            Table = table;
             InitializeComponent();
         }
 

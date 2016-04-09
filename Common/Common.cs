@@ -43,17 +43,17 @@ public class Order
 
 
 [Serializable]
-public class Meal {
+public class Table {
     public List<Order> orders{ get; set; }
     public int State { get; set; }
-    public int Table { get; set; }
+    public bool Free { get; set; }
+    public int ID { get; set; }
 
-    public Meal(){ orders = new List<Order>();    }
-
-    public Meal(int num)
+    public Table(int id)
     {
+        ID = id;
         orders = new List<Order>();
-        Table = num;
+        Free = false;
     }
 
     public void addOrder(Order o)
@@ -73,15 +73,14 @@ public class Meal {
 
 public enum Operation { New, Change };
 
-public delegate void AlterDelegate(Operation op, Meal item);
+public delegate void AlterDelegate(Operation op, Table item);
 
 public interface IListSingleton {
   event AlterDelegate AlterEvent;
 
-  List<Meal> GetList();
+  List<Table> GetTablesList();
   int GetNewType();
-  void AddItem(Meal item);
-  void ChangeComment(int type, string comment);
+  void AddTable(Table table);
 }
 
 public class AlterEventRepeater : MarshalByRefObject {
@@ -91,7 +90,7 @@ public class AlterEventRepeater : MarshalByRefObject {
     return null;
   }
 
-  public void Repeater(Operation op, Meal item) {
+  public void Repeater(Operation op, Table item) {
     if (alterEvent != null)
       alterEvent(op, item);
   }

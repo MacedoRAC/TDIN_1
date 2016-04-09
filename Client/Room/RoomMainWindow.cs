@@ -7,12 +7,13 @@ namespace Client.Room
 {
     public partial class RoomMainWindow : Form
     {
-        private int OpenMealsCounter { get; set; } = 0;
+        private int OpenTablesCounter { get; set; } = 0;
         delegate void ControlsAddDelegate(Control lvItem);
-        delegate void ChCommDelegate(Meal item);
+        delegate void ChCommDelegate(Table item);
         IListSingleton listServer;
         AlterEventRepeater evRepeater;
-        List<Meal> meals;
+        List<Table> tables;
+        public int MaxNumberOfTables = 15;
 
         public RoomMainWindow()
         {
@@ -22,7 +23,7 @@ namespace Client.Room
             evRepeater = new AlterEventRepeater();
             evRepeater.alterEvent += new AlterDelegate(DoAlterations);
             listServer.AlterEvent += new AlterDelegate(evRepeater.Repeater);
-            meals = listServer.GetList();
+            tables = listServer.GetTablesList();
         }
 
         public override object InitializeLifetimeService()
@@ -32,13 +33,18 @@ namespace Client.Room
 
         private void RoomMainWindow_Load(object sender, EventArgs e)
         {
-            foreach (Meal it in meals)
+            foreach (Table it in tables)
             {
-                AddMealsToMealsContainer();
+                AddTablesToTablesContainer();
             }
+
+            OpenTablesCounter = tables.Count;
+
+            if (OpenTablesCounter >= MaxNumberOfTables)
+                openTableButton.Enabled = false;
         }
 
-        public void DoAlterations(Operation op, Meal item)
+        public void DoAlterations(Operation op, Table item)
         {
             ControlsAddDelegate ctrlsAdd;
             //ChCommDelegate chComm;
@@ -46,8 +52,8 @@ namespace Client.Room
             switch (op)
             {
                 case Operation.New:
-                    ctrlsAdd = new ControlsAddDelegate(MealsContainer.Controls.Add);
-                    Button ctrlItem = CreatedNewMealButton();
+                    ctrlsAdd = new ControlsAddDelegate(TablesContainer.Controls.Add);
+                    Button ctrlItem = CreatedNewTableButton();
                     BeginInvoke(ctrlsAdd, new object[] { ctrlItem });
                     break;
                 /*case Operation.Change:
@@ -67,45 +73,48 @@ namespace Client.Room
 
         }
 
-        private void OpenNewMeal(object sender, EventArgs e)
+        private void OpenNewTable(object sender, EventArgs e)
         {
-            listServer.AddItem(new Meal(OpenMealsCounter + 1));
+            listServer.AddTable(new Table(OpenTablesCounter));
+
+            if (OpenTablesCounter >= MaxNumberOfTables)
+                openTableButton.Enabled = false;
         }
 
-        private void AddMealsToMealsContainer()
+        private void AddTablesToTablesContainer()
         {
-            var newMeal = CreatedNewMealButton();
+            var newTable = CreatedNewTableButton();
 
-            MealsContainer.Controls.Add(newMeal);
+            TablesContainer.Controls.Add(newTable);
         }
 
-        private Button CreatedNewMealButton ()
+        private Button CreatedNewTableButton ()
         {
-            OpenMealsCounter++;
-            Button newMealBtn =  new Button
+            OpenTablesCounter++;
+            Button newTableBtn =  new Button
             {
-                Name = "meal_" + OpenMealsCounter,
-                Text = "Meal " + OpenMealsCounter,
-                Tag = OpenMealsCounter-1,
+                Name = "table_" + OpenTablesCounter,
+                Text = "Table " + OpenTablesCounter,
+                Tag = OpenTablesCounter-1,
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
 
             };
-            newMealBtn.Click += new EventHandler(OpenMealDetails);
+            newTableBtn.Click += new EventHandler(OpenTableDetails);
 
-            return newMealBtn;
+            return newTableBtn;
         }
 
-        public void OpenMealDetails(object sender, EventArgs e)
+        public void OpenTableDetails(object sender, EventArgs e)
         {
-            meals = listServer.GetList();
+            tables = listServer.GetTablesList();
 
-            int mealId = int.Parse(((Button)sender).Tag.ToString());
-            Meal meal = meals[mealId];
+            int tableId = int.Parse(((Button)sender).Tag.ToString());
+            Table table = tables[tableId];
 
-            var mealDetails = new MealDetaislForm(meal, mealId);
-            mealDetails.Text = "Meal Number " + (mealId+1);
-            mealDetails.Show();
+            var tableDetails = new TableDetaislForm(table);
+            tableDetails.Text = "Table Number " + (tableId+1);
+            tableDetails.Show();
         }
 
         private void exit(object sender, EventArgs e)
