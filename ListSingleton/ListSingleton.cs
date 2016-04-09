@@ -7,14 +7,15 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
 {
     List<Table> TablesList;
     public event AlterDelegate AlterEvent;
+    public event OrderDelegate OrderEvent;
     public int Type = 2;
-    Dictionary<string, Product> menu;
+
+    public Dictionary<string, Product> menu;
 
     public ListSingleton()
     {
         Console.WriteLine("Constructor called.");
         TablesList = new List<Table>();
-        menu = new Dictionary<string, Product>();
         initializeMenu();
     }
 
@@ -29,12 +30,6 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         return TablesList;
     }
 
-    public Dictionary<string, Product> GetMenu()
-    {
-        Console.WriteLine("GetMenu() called.");
-        return menu;
-    }
-
     public int GetNewType()
     {
         return Type++;
@@ -45,6 +40,40 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         TablesList.Add(table);
         NotifyClients(Operation.New, table);
     }
+
+    public void AddOrder(Order o, int tableID)
+    {
+        foreach (Table t in TablesList)
+            if (t.Equals(tableID))
+                t.addOrder(o);
+        NotifyClients(Operation.New, o, tableID);
+    }
+
+    void NotifyClients(Operation op, Order order, int tableId)
+    {
+        if (AlterEvent != null)
+        {
+            Delegate[] invkList = OrderEvent.GetInvocationList();
+
+            foreach (OrderDelegate handler in invkList)
+            {
+                new Thread(() =>
+                {
+                    try
+                    {
+                        handler(op, order, tableId);
+                        Console.WriteLine("Invoking event handler");
+                    }
+                    catch (Exception)
+                    {
+                        OrderEvent -= handler;
+                        Console.WriteLine("Exception: Removed an event handler");
+                    }
+                }).Start();
+            }
+        }
+    }
+
 
     void NotifyClients(Operation op, Table item)
     {
@@ -77,7 +106,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         menu.Add("Água", new Product(0.7f, "Água"));
         menu.Add("Coca-cola", new Product(1f, "Coca-cola"));
         menu.Add("Super Bock", new Product(0.7f, "Super Bock"));
-        menu.Add("Vinho Branco da Casa", new Product(0.7f, "Vinho Branco da Casa"));
+        menu.Add("Vinho Bramco da Casa", new Product(0.7f, "Vinho Branco da Casa"));
         menu.Add("Vinho Tinto da Casa", new Product(0.7f, "Vinho Tinto da Casa"));
 
         menu.Add("Bacalhau com Natas", new Product(0.7f, "Bacalhau com Natas"));
@@ -89,5 +118,13 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         menu.Add("Leite Creme", new Product(0.7f, "Leite Creme"));
         menu.Add("Bolo do Bolacha", new Product(0.7f, "Bolo de Bolacha"));
         menu.Add("Mousse de Manga", new Product(0.7f, "Mousse de Manga"));
+
+
+
+    }
+
+    public Dictionary<string, Product> GetMenu()
+    {
+        return menu;
     }
 }
