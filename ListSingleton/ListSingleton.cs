@@ -8,6 +8,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     List<Table> TablesList;
     public event AlterDelegate AlterEvent;
     public int Type = 2;
+    Dictionary<string, Product> menu;
 
     public ListSingleton()
     {
@@ -24,6 +25,12 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     {
         Console.WriteLine("GetList() called.");
         return TablesList;
+    }
+
+    public Dictionary<string, Product> GetMenu()
+    {
+        Console.WriteLine("GetMenu() called.");
+        return menu;
     }
 
     public int GetNewType()
