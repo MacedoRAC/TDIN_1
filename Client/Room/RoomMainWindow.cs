@@ -9,10 +9,10 @@ namespace Client.Room
     {
         private int OpenTablesCounter { get; set; } = 0;
         delegate void ControlsAddDelegate(Control lvItem);
-        delegate void ChCommDelegate(Order item);
+        delegate void ChCommDelegate(Meal item);
         IListSingleton listServer;
         AlterEventRepeater evRepeater;
-        List<Order> orders;
+        List<Meal> orders;
 
         public RoomMainWindow()
         {
@@ -37,7 +37,7 @@ namespace Client.Room
             evRepeater.alterEvent -= new AlterDelegate(DoAlterations);
         }
 
-        public void DoAlterations(Operation op, Order item)
+        public void DoAlterations(Operation op, Meal item)
         {
             ControlsAddDelegate ctrlsAdd;
             //ChCommDelegate chComm;
@@ -68,7 +68,7 @@ namespace Client.Room
 
         private void RoomMainWindow_Load(object sender, EventArgs e)
         {
-            foreach (Order it in orders)
+            foreach (Meal it in orders)
             {
                 AddTableToTablesContainer();
             }
@@ -76,7 +76,7 @@ namespace Client.Room
 
         private void OpenNewTable(object sender, EventArgs e)
         {
-            listServer.AddItem(new Order(OpenTablesCounter + 1));
+            listServer.AddItem(new Meal(OpenTablesCounter + 1));
             //AddTableToTablesContainer();
         }
 
@@ -93,7 +93,7 @@ namespace Client.Room
             return new Button
             {
                 Name = "table_" + OpenTablesCounter,
-                Text = "Table " + OpenTablesCounter,
+                Text = "Meal " + OpenTablesCounter,
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
 

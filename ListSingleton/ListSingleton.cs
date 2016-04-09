@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Threading;
 
 public class ListSingleton : MarshalByRefObject, IListSingleton {
-  List<Order> itemsList;
+  List<Meal> itemsList;
   public event AlterDelegate alterEvent;
   int type = 2;
 
   public ListSingleton() {
     Console.WriteLine("Constructor called.");
-    itemsList = new List<Order>();
-    Order item = new Order();
+    itemsList = new List<Meal>();
+    Meal item = new Meal();
     itemsList.Add(item);
   }
 
@@ -19,7 +19,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton {
     return null;
   }
 
-  public List<Order> GetList() {
+  public List<Meal> GetList() {
     Console.WriteLine("GetList() called.");
     return itemsList;
   }
@@ -28,17 +28,16 @@ public class ListSingleton : MarshalByRefObject, IListSingleton {
     return type++;
   }
 
-  public void AddItem(Order item) {
+  public void AddItem(Meal item) {
     itemsList.Add(item);
     NotifyClients(Operation.New, item);
   }
 
   public void ChangeComment(int type, string comment) {
-    Order nitem = null;
+    Meal nitem = null;
 
-    foreach (Order it in itemsList) {
+    foreach (Meal it in itemsList) {
       if (it.Table == type) {
-        it.Description = comment;
         nitem = it;
         break;
       }
@@ -46,7 +45,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton {
     NotifyClients(Operation.Change, nitem); 
   }
 
-  void NotifyClients(Operation op, Order item) {
+  void NotifyClients(Operation op, Meal item) {
     if (alterEvent != null) {
       Delegate[] invkList = alterEvent.GetInvocationList();
 
