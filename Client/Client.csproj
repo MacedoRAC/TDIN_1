@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Kitchen\KitchenMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\KitchenMainWindow.Designer.cs">
+      <DependentUpon>KitchenMainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainClass.cs" />
     <Compile Include="RemoteNew.cs" />
     <Compile Include="Room\AddOrderDialog.cs">
@@ -82,6 +88,9 @@
     </Compile>
     <Compile Include="Room\RoomMainWindow.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Kitchen\KitchenMainWindow.resx">
+      <DependentUpon>KitchenMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Room\AddOrderDialog.resx">
       <DependentUpon>AddOrderDialog.cs</DependentUpon>
     </EmbeddedResource>
