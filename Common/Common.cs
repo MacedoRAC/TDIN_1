@@ -8,12 +8,14 @@ public class Product
     public float UnitPrice { get; set; }
     public string Description { get; set; }
     public float IVA { get; set; } //percent value, like 23%
+    public bool Bar { get; set; }
 
-    public Product(float unit_price, string description, float iva = 23)
+    public Product(float unit_price, string description, bool bar = true, float iva = 23)
     {
         UnitPrice = unit_price;
         Description = description;
         IVA = iva;
+        Bar = bar;
     }
 
     public float GetPriceWithIva()
@@ -129,8 +131,10 @@ public delegate void OrderDelegate(Operation op, Order item, int tableId);
 public interface IListSingleton {
   event AlterDelegate AlterEvent;
   event OrderDelegate OrderEvent;
+    event OrderDelegate KitchenEvent;
+    event OrderDelegate BarEvent;
 
-  List<Table> GetTablesList();
+    List<Table> GetTablesList();
   Dictionary<string, Product> GetMenu();
   int GetNewType();
   void AddTable(Table table);

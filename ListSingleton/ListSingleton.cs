@@ -8,6 +8,8 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     List<Table> TablesList;
     public event AlterDelegate AlterEvent;
     public event OrderDelegate OrderEvent;
+    public event OrderDelegate KitchenEvent;
+    public event OrderDelegate BarEvent;
     public int Type = 2;
 
     public Dictionary<string, Product> menu;
@@ -51,9 +53,21 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
 
     void NotifyClients(Operation op, Order order, int tableId)
     {
-        if (AlterEvent != null)
+        if (OrderEvent != null)
         {
-            Delegate[] invkList = OrderEvent.GetInvocationList();
+            Delegate[] roomList = OrderEvent.GetInvocationList();
+            Delegate[] prepList = new Delegate[0];
+            Delegate[] invkList;
+
+            if (order.Product.Bar && BarEvent != null)
+                prepList = BarEvent.GetInvocationList();
+            else if (KitchenEvent != null)
+                prepList = KitchenEvent.GetInvocationList();
+
+            //Put Every Handler in a single Delegate[] to have only 1 cicle
+            invkList = new Delegate[roomList.Length + prepList.Length];
+            roomList.CopyTo(invkList, 0);
+            prepList.CopyTo(invkList, roomList.Length);
 
             foreach (OrderDelegate handler in invkList)
             {
@@ -110,10 +124,10 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         menu.Add("Vinho Bramco da Casa", new Product(0.7f, "Vinho Branco da Casa"));
         menu.Add("Vinho Tinto da Casa", new Product(0.7f, "Vinho Tinto da Casa"));
 
-        menu.Add("Bacalhau com Natas", new Product(0.7f, "Bacalhau com Natas"));
-        menu.Add("Vitela Mendinha", new Product(0.7f, "Vitela Mendinha"));
-        menu.Add("Francesinha Especial", new Product(0.7f, "Francesinha Especial"));
-        menu.Add("Leitão no forno", new Product(0.7f, "Leitão no forno"));
+        menu.Add("Bacalhau com Natas", new Product(0.7f, "Bacalhau com Natas", false));
+        menu.Add("Vitela Mendinha", new Product(0.7f, "Vitela Mendinha", false));
+        menu.Add("Francesinha Especial", new Product(0.7f, "Francesinha Especial", false));
+        menu.Add("Leitão no forno", new Product(0.7f, "Leitão no forno", false));
         menu.Add("Sandes de Leitão", new Product(0.7f, "Sandes de Leitão"));
 
         menu.Add("Leite Creme", new Product(0.7f, "Leite Creme"));
