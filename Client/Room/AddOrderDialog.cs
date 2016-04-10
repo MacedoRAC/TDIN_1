@@ -22,7 +22,7 @@ namespace Client.Room
             InitializeComponent();
             
             this.productsComboBox.DataSource = new BindingSource(products, null);
-            this.productsComboBox.ValueMember = "Key";
+            this.productsComboBox.ValueMember = "Value";
             this.productsComboBox.DisplayMember = "Key";
         }
 
@@ -44,7 +44,7 @@ namespace Client.Room
         private void Add(object sender, EventArgs e)
         {
             Quantity = Convert.ToInt32(quantitySelector.Value);
-            Product = products[productsComboBox.SelectedValue.ToString()];
+            Product = ((KeyValuePair<string, Product>)productsComboBox.SelectedItem).Value;
 
             this.DialogResult = DialogResult.OK;
             this.Close();
