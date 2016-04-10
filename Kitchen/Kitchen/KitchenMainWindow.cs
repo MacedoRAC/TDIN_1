@@ -14,6 +14,7 @@ namespace Client.Room
 
         public KitchenMainWindow()
         {
+            RemotingConfiguration.Configure("Client.exe.config", false);
             listServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
             orderRepeater = new OrderEventRepeater();
             orderRepeater.alterEvent += new OrderDelegate(DoAlterations);
@@ -40,7 +41,17 @@ namespace Client.Room
 
         public void KitchenMainWindow_Load(object sender, EventArgs e)
         {
-            
+            foreach(var table in Tables)
+            {
+                foreach(var order in table.orders)
+                {
+                    if(order.State != "Done" && !order.Product.Bar)
+                    {
+                        var lvItem = CreateNewListViewItem(order, table.ID.ToString());
+                        ListViewOrders.Items.Add(lvItem);
+                    }
+                }
+            }
         }
 
         private void Exit(object sender, EventArgs e)
@@ -58,6 +69,13 @@ namespace Client.Room
         private void FinishOrder(object sender, EventArgs e)
         {
 
+        }
+
+        private ListViewItem CreateNewListViewItem(Order order, string tableId)
+        {
+            string[] row = { order.Quantity.ToString(), order.Product.Description, tableId, order.State.ToString() };
+
+            return new ListViewItem(row);
         }
     }
 }

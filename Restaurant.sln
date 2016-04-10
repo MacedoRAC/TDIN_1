@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 14.00
-# Visual Studio 2015
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{CD9319B2-6E8C-4CFF-96DD-84965CC61CD7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9EE38943-7392-407F-A4EA-E4A695ED532A} = {9EE38943-7392-407F-A4EA-E4A695ED532A}
@@ -14,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csp
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{9EE38943-7392-407F-A4EA-E4A695ED532A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kitchen", "Kitchen\Kitchen.csproj", "{F0B47665-B474-4A55-847D-32E138E791F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +41,10 @@ Global
 		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EE38943-7392-407F-A4EA-E4A695ED532A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0B47665-B474-4A55-847D-32E138E791F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0B47665-B474-4A55-847D-32E138E791F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0B47665-B474-4A55-847D-32E138E791F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0B47665-B474-4A55-847D-32E138E791F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

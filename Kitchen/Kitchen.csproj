@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5E7BBBA5-07B0-4146-88EF-45161D13FB42}</ProjectGuid>
+    <ProjectGuid>{F0B47665-B474-4A55-847D-32E138E791F4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Client</RootNamespace>
@@ -63,32 +63,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Kitchen\KitchenMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen\KitchenMainWindow.Designer.cs">
+      <DependentUpon>KitchenMainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainClass.cs" />
     <Compile Include="RemoteNew.cs" />
-    <Compile Include="Room\AddOrderDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Room\AddOrderDialog.Designer.cs">
-      <DependentUpon>AddOrderDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Room\TableDetaislForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Room\TableDetaislForm.Designer.cs">
-      <DependentUpon>TableDetaislForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Room\RoomMainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Room\RoomMainWindow.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Room\AddOrderDialog.resx">
-      <DependentUpon>AddOrderDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Kitchen\KitchenMainWindow.resx">
+      <DependentUpon>KitchenMainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Room\TableDetaislForm.resx">
-      <DependentUpon>TableDetaislForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Room\RoomMainWindow.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
