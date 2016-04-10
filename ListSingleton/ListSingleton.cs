@@ -60,9 +60,13 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
             Delegate[] invkList;
 
             if (order.Product.Bar && BarEvent != null)
+            {
                 prepList = BarEvent.GetInvocationList();
-            else if (KitchenEvent != null)
+            }
+            if (!order.Product.Bar&& KitchenEvent != null)
+            {
                 prepList = KitchenEvent.GetInvocationList();
+            }
 
             //Put Every Handler in a single Delegate[] to have only 1 cicle
             invkList = new Delegate[roomList.Length + prepList.Length];
