@@ -9,21 +9,53 @@ namespace Client.Room
     {
         protected Table Table;
         protected Dictionary<string, Product> Products;
+        IListSingleton listServer;
+        OrderEventRepeater orderRepeater;
+        delegate ListViewItem ListItemAddDelegate(ListViewItem lvItem);
+        Order NewOrder;
 
         public TableDetaislForm(Table table, Dictionary<string, Product> products)
         {
+            RemotingConfiguration.Configure("Client.exe.config", false);
+
             Table = table;
             Products = products;
             InitializeComponent();
+
+            listServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
+            orderRepeater = new OrderEventRepeater();
+            orderRepeater.alterEvent += new OrderDelegate(DoAlterations);
+            listServer.OrderEvent += new OrderDelegate(orderRepeater.Repeater);
         }
 
-        public void MealDetailsForm_Load(object sender, EventArgs e)
+        public void DoAlterations(Operation op, Order item, int tableId)
         {
-            
+            ListItemAddDelegate lvAdd;
+
+            switch (op)
+            {
+                case Operation.New:
+                    lvAdd = new ListItemAddDelegate(ListViewOrders.Items.Add);
+                    ListViewItem lvItem = CreateNewListViewItem();
+                    BeginInvoke(lvAdd, new object[] { lvItem });
+                    break;
+            }
+        }
+
+        public void TableDetailsForm_Load(object sender, EventArgs e)
+        {
+            foreach(var order in Table.orders)
+            {
+                NewOrder = order;
+                var lvItem = CreateNewListViewItem();
+                ListViewOrders.Items.Add(lvItem);
+            }
         }
 
         private void CloseWindow(object sender, EventArgs e)
         {
+            listServer.OrderEvent -= new OrderDelegate(orderRepeater.Repeater);
+            orderRepeater.alterEvent -= new OrderDelegate(DoAlterations);
             Close();
         }
 
@@ -35,9 +67,18 @@ namespace Client.Room
             {
                 if (orderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    var newOrder = new Order(orderDialog.GetQuantity(), orderDialog.GetProduct());
+                    NewOrder = new Order(orderDialog.GetQuantity(), orderDialog.GetProduct());
+                    listServer.AddOrder(NewOrder, int.Parse(this.Tag.ToString()));
                 }
             }
+        }
+
+        private ListViewItem CreateNewListViewItem()
+        {
+            string[] row = { NewOrder.Quantity.ToString(), NewOrder.Product.Description, NewOrder.State.ToString() };
+            NewOrder = null;
+
+            return new ListViewItem(row);
         }
     }
 }

@@ -134,6 +134,7 @@ public interface IListSingleton {
   Dictionary<string, Product> GetMenu();
   int GetNewType();
   void AddTable(Table table);
+  void AddOrder(Order o, int tableID);
 }
 
 public class AlterEventRepeater : MarshalByRefObject {

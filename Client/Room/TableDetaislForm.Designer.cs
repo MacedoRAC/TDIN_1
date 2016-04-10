@@ -152,6 +152,8 @@
             this.Text = "Meal Number ";
             this.ResumeLayout(false);
 
+            this.Load += new System.EventHandler(this.TableDetailsForm_Load);
+
         }
 
         #endregion
