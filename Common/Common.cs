@@ -42,17 +42,29 @@ public class Order
 {
     public int Quantity { get; set; }
     public Product Product { get; set; }
-    public int State { get; set; }
+    public string State { get; set; }
 
     public Order (int quantity, Product product)
     {
         Quantity = quantity;
         Product = product;
+        State = "In Queue";
     }     
 
     public float getTotalPrice()
     {
         return Quantity * Product.GetPriceWithIva();
+    }
+
+    public void attendOrder()
+    {
+        State = "In Progress";
+    }
+
+
+    public void finishOrder()
+    {
+        State = "Done";
     }
 
     public bool Equals(Order o)
