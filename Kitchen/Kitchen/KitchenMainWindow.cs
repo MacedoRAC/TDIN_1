@@ -18,7 +18,7 @@ namespace Client.Room
             listServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
             orderRepeater = new OrderEventRepeater();
             orderRepeater.alterEvent += new OrderDelegate(DoAlterations);
-            listServer.OrderEvent += new OrderDelegate(orderRepeater.Repeater);
+            listServer.KitchenEvent += new OrderDelegate(orderRepeater.Repeater);
 
             Tables = listServer.GetTablesList();
 
@@ -32,9 +32,9 @@ namespace Client.Room
             switch (op)
             {
                 case Operation.New:
-                    /*lvAdd = new ListItemAddDelegate(ListViewOrders.Items.Add);
-                    ListViewItem lvItem = CreateNewListViewItem(item);
-                    BeginInvoke(lvAdd, new object[] { lvItem });*/
+                    lvAdd = new ListItemAddDelegate(ListViewOrders.Items.Add);
+                    ListViewItem lvItem = CreateNewListViewItem(item, tableId.ToString());
+                    BeginInvoke(lvAdd, new object[] { lvItem });
                     break;
             }
         }
