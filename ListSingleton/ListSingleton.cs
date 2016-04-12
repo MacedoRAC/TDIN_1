@@ -60,10 +60,20 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         AddOrder(order);
     }
 
-    public void AttendOrder(Order o)
+    public void AttendOrder(int orderId)
     {
-        o.attendOrder();
-        NotifyClients(Operation.Change, o, o.TableId);
+        foreach (Table t in TablesList)
+        {
+            foreach (Order o in t.orders)
+            {
+                if (o.Equals(orderId))
+                {
+                    o.attendOrder();
+                    NotifyClients(Operation.Change, o, o.TableId);
+                    break;
+                }
+            }
+        }
     }
 
     void NotifyClients(Operation op, Order order, int tableId)
@@ -78,7 +88,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
             {
                 prepList = BarEvent.GetInvocationList();
             }
-            if (!order.Product.Bar&& KitchenEvent != null)
+            if (!order.Product.Bar && KitchenEvent != null)
             {
                 prepList = KitchenEvent.GetInvocationList();
             }
