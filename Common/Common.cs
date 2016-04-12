@@ -39,7 +39,8 @@ public class Product
 [Serializable]
 public class Order
 {
-    static int COUNTER = 0;
+    [ThreadStatic] private static Object lockObject = new Object();
+    [ThreadStatic] static int COUNTER = 0;
     public int Quantity { get; set; }
     public Product Product { get; set; }
     public string State { get; set; }
@@ -51,8 +52,11 @@ public class Order
         Quantity = quantity;
         Product = product;
         State = "In Queue";
-        COUNTER++;
-        Id = COUNTER;
+        lock(lockObject)
+        {
+            COUNTER++;
+            Id = COUNTER;
+        }
     }     
 
     public float getTotalPrice()
@@ -154,8 +158,9 @@ public interface IListSingleton {
   Dictionary<string, Product> GetMenu();
   int GetNewType();
   void AddTable(Table table);
-  void AddOrder(Order o, int tableID);
-  void AttendOrder(Order o);
+  void AddOrder(Order o);
+    void AddOrder(int quantity, Product product, int tableID);
+    void AttendOrder(Order o);
 }
 
 public class AlterEventRepeater : MarshalByRefObject {

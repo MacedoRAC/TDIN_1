@@ -70,7 +70,7 @@ namespace Client.Room
 
             foreach (var item in selectedOrders)
             {
-                ListServer.AttendOrder(item.)
+                //ListServer.AttendOrder((ListViewItem)item.Text);
             }
         }
 

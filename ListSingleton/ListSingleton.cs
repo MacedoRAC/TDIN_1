@@ -43,13 +43,21 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         NotifyClients(Operation.New, table);
     }
 
-    public void AddOrder(Order o, int tableID)
+    public void AddOrder(Order o)
     {
-        o.TableId = tableID;
+        Console.WriteLine(o.TableId);
         foreach (Table t in TablesList)
-            if (t.Equals(tableID))
+            if (t.Equals(o.TableId))
                 t.addOrder(o);
-        NotifyClients(Operation.New, o, tableID);
+        NotifyClients(Operation.New, o, o.TableId);
+    }
+
+    public void AddOrder(int quantity, Product product, int tableID)
+    {
+        var order = new Order(quantity, product);
+        order.TableId = tableID;
+
+        AddOrder(order);
     }
 
     public void AttendOrder(Order o)

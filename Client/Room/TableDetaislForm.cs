@@ -63,8 +63,8 @@ namespace Client.Room
             {
                 if (orderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    var order = new Order(orderDialog.GetQuantity(), orderDialog.GetProduct());
-                    listServer.AddOrder(order, int.Parse(this.Tag.ToString()));
+                    int id = int.Parse(Tag.ToString());
+                    listServer.AddOrder(orderDialog.GetQuantity(), orderDialog.GetProduct(), id);
                 }
             }
         }
