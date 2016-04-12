@@ -66,7 +66,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         {
             foreach (Order o in t.orders)
             {
-                if (o.Equals(orderId))
+                if (o.Id == orderId)
                 {
                     if (!o.State.Equals("In Queue"))
                         return -1;

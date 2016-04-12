@@ -10,6 +10,7 @@ namespace Client.Room
         IListSingleton ListServer;
         OrderEventRepeater orderRepeater;
         delegate ListViewItem ListItemAddDelegate(ListViewItem lvItem);
+        delegate void ListItemUpdateDelegate(ListViewItem lvItem);
         List<Table> Tables;
 
         public KitchenMainWindow()
@@ -28,6 +29,7 @@ namespace Client.Room
         public void DoAlterations(Operation op, Order item, int tableId)
         {
             ListItemAddDelegate lvAdd;
+            ListItemUpdateDelegate lvUpdate;
 
             switch (op)
             {
@@ -37,22 +39,39 @@ namespace Client.Room
                     BeginInvoke(lvAdd, new object[] { lvItem });
                     break;
                 case Operation.Change:
-                    /*lvAdd = new ListItemAddDelegate(ListViewOrders.Items.Add);
-                    ListViewItem lvItem = CreateNewListViewItem(item, (tableId+1).ToString());
-                    BeginInvoke(lvAdd, new object[] { lvItem });*/
+                    lvUpdate = new ListItemUpdateDelegate(UpdateListViewItemOrderStatus);
+                    ListViewItem updatedOrder = CreateNewListViewItem(item, (tableId+1).ToString());
+                    BeginInvoke(lvUpdate, new object[] { updatedOrder });
                     break;
+            }
+        }
+
+        private void UpdateListViewItemOrderStatus(ListViewItem lvItem)
+        {
+            for(int i = 0; i < ListViewOrders.Items.Count; i++)
+            {
+                if (ListViewOrders.Items[i].Text == lvItem.Text)
+                {
+                    ListViewOrders.Items[i] = lvItem;
+                }
+
             }
         }
 
         public void KitchenMainWindow_Load(object sender, EventArgs e)
         {
-            foreach(var table in Tables)
+            FillListViewOrders();
+        }
+
+        private void FillListViewOrders()
+        {
+            foreach (var table in Tables)
             {
-                foreach(var order in table.orders)
+                foreach (var order in table.orders)
                 {
-                    if(order.State != "Done" && !order.Product.Bar)
+                    if (order.State != "Done" && !order.Product.Bar)
                     {
-                        var lvItem = CreateNewListViewItem(order, (table.ID+1).ToString());
+                        var lvItem = CreateNewListViewItem(order, (table.ID + 1).ToString());
                         ListViewOrders.Items.Add(lvItem);
                     }
                 }

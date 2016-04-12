@@ -34,9 +34,7 @@
             this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnState = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addOrderBtn = new System.Windows.Forms.Button();
-            this.editOrderBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.deleteOrderBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ListViewOrders
@@ -88,22 +86,6 @@
             this.addOrderBtn.UseVisualStyleBackColor = false;
             this.addOrderBtn.Click += new System.EventHandler(this.OpenNewOrderDialog);
             // 
-            // editOrderBtn
-            // 
-            this.editOrderBtn.BackColor = System.Drawing.Color.Transparent;
-            this.editOrderBtn.Enabled = false;
-            this.editOrderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen;
-            this.editOrderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.editOrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editOrderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editOrderBtn.ForeColor = System.Drawing.Color.White;
-            this.editOrderBtn.Location = new System.Drawing.Point(438, 56);
-            this.editOrderBtn.Name = "editOrderBtn";
-            this.editOrderBtn.Size = new System.Drawing.Size(96, 37);
-            this.editOrderBtn.TabIndex = 2;
-            this.editOrderBtn.Text = "Edit Order";
-            this.editOrderBtn.UseVisualStyleBackColor = false;
-            // 
             // closeBtn
             // 
             this.closeBtn.BackColor = System.Drawing.Color.Transparent;
@@ -112,7 +94,7 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.White;
-            this.closeBtn.Location = new System.Drawing.Point(438, 142);
+            this.closeBtn.Location = new System.Drawing.Point(438, 56);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(96, 37);
             this.closeBtn.TabIndex = 3;
@@ -120,39 +102,20 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.CloseWindow);
             // 
-            // deleteOrderBtn
-            // 
-            this.deleteOrderBtn.BackColor = System.Drawing.Color.Transparent;
-            this.deleteOrderBtn.Enabled = false;
-            this.deleteOrderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen;
-            this.deleteOrderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
-            this.deleteOrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteOrderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteOrderBtn.ForeColor = System.Drawing.Color.White;
-            this.deleteOrderBtn.Location = new System.Drawing.Point(438, 99);
-            this.deleteOrderBtn.Name = "deleteOrderBtn";
-            this.deleteOrderBtn.Size = new System.Drawing.Size(96, 37);
-            this.deleteOrderBtn.TabIndex = 4;
-            this.deleteOrderBtn.Text = "Delete Order";
-            this.deleteOrderBtn.UseVisualStyleBackColor = false;
-            // 
             // TableDetaislForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(546, 308);
-            this.Controls.Add(this.deleteOrderBtn);
             this.Controls.Add(this.closeBtn);
-            this.Controls.Add(this.editOrderBtn);
             this.Controls.Add(this.addOrderBtn);
             this.Controls.Add(this.ListViewOrders);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TableDetaislForm";
             this.Text = "Meal Number ";
-            this.ResumeLayout(false);
-
             this.Load += new System.EventHandler(this.TableDetailsForm_Load);
+            this.ResumeLayout(false);
 
         }
 
@@ -163,8 +126,6 @@
         private System.Windows.Forms.ColumnHeader columnDescription;
         private System.Windows.Forms.ColumnHeader columnState;
         private System.Windows.Forms.Button addOrderBtn;
-        private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Button closeBtn;
-        private System.Windows.Forms.Button deleteOrderBtn;
     }
 }

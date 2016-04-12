@@ -128,11 +128,6 @@ public class Table {
 
     public bool Equals(int i)
     {
-        // If parameter is null return false:
-        if ((object)i == null)
-        {
-            return false;
-        }
 
         // Return true if the fields match:
         return (ID == i);
