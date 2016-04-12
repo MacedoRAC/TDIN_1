@@ -132,7 +132,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         menu.Add("Vitela Mendinha", new Product(0.7f, "Vitela Mendinha", false));
         menu.Add("Francesinha Especial", new Product(0.7f, "Francesinha Especial", false));
         menu.Add("Leitão no forno", new Product(0.7f, "Leitão no forno", false));
-        menu.Add("Sandes de Leitão", new Product(0.7f, "Sandes de Leitão"));
+        menu.Add("Sandes de Leitão", new Product(0.7f, "Sandes de Leitão", false));
 
         menu.Add("Leite Creme", new Product(0.7f, "Leite Creme"));
         menu.Add("Bolo do Bolacha", new Product(0.7f, "Bolo de Bolacha"));

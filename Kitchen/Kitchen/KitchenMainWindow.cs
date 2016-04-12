@@ -7,7 +7,7 @@ namespace Client.Room
 {
     public partial class KitchenMainWindow : Form
     {
-        IListSingleton listServer;
+        IListSingleton ListServer;
         OrderEventRepeater orderRepeater;
         delegate ListViewItem ListItemAddDelegate(ListViewItem lvItem);
         List<Table> Tables;
@@ -15,12 +15,12 @@ namespace Client.Room
         public KitchenMainWindow()
         {
             RemotingConfiguration.Configure("Client.exe.config", false);
-            listServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
+            ListServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
             orderRepeater = new OrderEventRepeater();
             orderRepeater.alterEvent += new OrderDelegate(DoAlterations);
-            listServer.KitchenEvent += new OrderDelegate(orderRepeater.Repeater);
+            ListServer.KitchenEvent += new OrderDelegate(orderRepeater.Repeater);
 
-            Tables = listServer.GetTablesList();
+            Tables = ListServer.GetTablesList();
 
             InitializeComponent();
         }
@@ -33,7 +33,7 @@ namespace Client.Room
             {
                 case Operation.New:
                     lvAdd = new ListItemAddDelegate(ListViewOrders.Items.Add);
-                    ListViewItem lvItem = CreateNewListViewItem(item, tableId.ToString());
+                    ListViewItem lvItem = CreateNewListViewItem(item, (tableId+1).ToString());
                     BeginInvoke(lvAdd, new object[] { lvItem });
                     break;
             }
@@ -47,7 +47,7 @@ namespace Client.Room
                 {
                     if(order.State != "Done" && !order.Product.Bar)
                     {
-                        var lvItem = CreateNewListViewItem(order, table.ID.ToString());
+                        var lvItem = CreateNewListViewItem(order, (table.ID+1).ToString());
                         ListViewOrders.Items.Add(lvItem);
                     }
                 }
@@ -56,14 +56,22 @@ namespace Client.Room
 
         private void Exit(object sender, EventArgs e)
         {
-            listServer.OrderEvent -= new OrderDelegate(orderRepeater.Repeater);
+            ListServer.OrderEvent -= new OrderDelegate(orderRepeater.Repeater);
             orderRepeater.alterEvent -= new OrderDelegate(DoAlterations);
             Application.Exit();
         }
 
         private void AttendOrder(object sender, EventArgs e)
         {
+            var selectedOrders = ListViewOrders.SelectedItems;
 
+            if (selectedOrders.Count == 0)
+                return;
+
+            foreach (var item in selectedOrders)
+            {
+                ListServer.AttendOrder(item.)
+            }
         }
 
         private void FinishOrder(object sender, EventArgs e)
@@ -73,7 +81,7 @@ namespace Client.Room
 
         private ListViewItem CreateNewListViewItem(Order order, string tableId)
         {
-            string[] row = { order.Quantity.ToString(), order.Product.Description, tableId, order.State.ToString() };
+            string[] row = { "0", order.Quantity.ToString(), order.Product.Description, tableId, order.State.ToString() };
 
             return new ListViewItem(row);
         }

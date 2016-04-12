@@ -37,11 +37,13 @@
             this.attendOrderBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.finishOrderBtn = new System.Windows.Forms.Button();
+            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // ListViewOrders
             // 
             this.ListViewOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnId,
             this.columnQuantity,
             this.columnDescription,
             this.columnTable,
@@ -61,16 +63,17 @@
             // columnQuantity
             // 
             this.columnQuantity.Text = "Quantity";
-            this.columnQuantity.Width = 63;
+            this.columnQuantity.Width = 54;
             // 
             // columnDescription
             // 
             this.columnDescription.Text = "Product";
-            this.columnDescription.Width = 215;
+            this.columnDescription.Width = 172;
             // 
             // columnTable
             // 
             this.columnTable.Text = "Table";
+            this.columnTable.Width = 39;
             // 
             // columnState
             // 
@@ -125,6 +128,11 @@
             this.finishOrderBtn.UseVisualStyleBackColor = false;
             this.finishOrderBtn.Click += new System.EventHandler(this.FinishOrder);
             // 
+            // columnId
+            // 
+            this.columnId.Text = "Order Number";
+            this.columnId.Width = 78;
+            // 
             // KitchenMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,5 +161,6 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.ColumnHeader columnTable;
         private System.Windows.Forms.Button finishOrderBtn;
+        private System.Windows.Forms.ColumnHeader columnId;
     }
 }
