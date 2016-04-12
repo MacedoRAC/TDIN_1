@@ -60,7 +60,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         AddOrder(order);
     }
 
-    public void AttendOrder(int orderId)
+    public int AttendOrder(int orderId)
     {
         foreach (Table t in TablesList)
         {
@@ -68,12 +68,15 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
             {
                 if (o.Equals(orderId))
                 {
+                    if (o.State != "In Queue")
+                        return -1;
                     o.attendOrder();
                     NotifyClients(Operation.Change, o, o.TableId);
-                    break;
+                    return 0;
                 }
             }
         }
+        return -1;
     }
 
     void NotifyClients(Operation op, Order order, int tableId)
