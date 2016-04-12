@@ -36,6 +36,11 @@ namespace Client.Room
                     ListViewItem lvItem = CreateNewListViewItem(item, (tableId+1).ToString());
                     BeginInvoke(lvAdd, new object[] { lvItem });
                     break;
+                case Operation.Change:
+                    /*lvAdd = new ListItemAddDelegate(ListViewOrders.Items.Add);
+                    ListViewItem lvItem = CreateNewListViewItem(item, (tableId+1).ToString());
+                    BeginInvoke(lvAdd, new object[] { lvItem });*/
+                    break;
             }
         }
 
@@ -70,7 +75,7 @@ namespace Client.Room
 
             foreach (var item in selectedOrders)
             {
-              ListServer.AttendOrder(int.Parse((ListViewItem)item.Text));
+              ListServer.AttendOrder(int.Parse(((ListViewItem)item).Text));
             }
         }
 

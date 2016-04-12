@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KitchenMainWindow));
             this.ListViewOrders = new System.Windows.Forms.ListView();
+            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnTable = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,7 +38,6 @@
             this.attendOrderBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.finishOrderBtn = new System.Windows.Forms.Button();
-            this.columnId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // ListViewOrders
@@ -60,6 +60,11 @@
             this.ListViewOrders.UseCompatibleStateImageBehavior = false;
             this.ListViewOrders.View = System.Windows.Forms.View.Details;
             // 
+            // columnId
+            // 
+            this.columnId.Text = "Order Number";
+            this.columnId.Width = 78;
+            // 
             // columnQuantity
             // 
             this.columnQuantity.Text = "Quantity";
@@ -68,7 +73,7 @@
             // columnDescription
             // 
             this.columnDescription.Text = "Product";
-            this.columnDescription.Width = 172;
+            this.columnDescription.Width = 166;
             // 
             // columnTable
             // 
@@ -127,11 +132,6 @@
             this.finishOrderBtn.Text = "Finish Order";
             this.finishOrderBtn.UseVisualStyleBackColor = false;
             this.finishOrderBtn.Click += new System.EventHandler(this.FinishOrder);
-            // 
-            // columnId
-            // 
-            this.columnId.Text = "Order Number";
-            this.columnId.Width = 78;
             // 
             // KitchenMainWindow
             // 
