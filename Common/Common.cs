@@ -39,15 +39,20 @@ public class Product
 [Serializable]
 public class Order
 {
+    static int COUNTER = 0;
     public int Quantity { get; set; }
     public Product Product { get; set; }
     public string State { get; set; }
+    public int TableId { get; set; }
+    public int Id { get; set; }
 
     public Order (int quantity, Product product)
     {
         Quantity = quantity;
         Product = product;
         State = "In Queue";
+        COUNTER++;
+        Id = COUNTER;
     }     
 
     public float getTotalPrice()
@@ -150,6 +155,7 @@ public interface IListSingleton {
   int GetNewType();
   void AddTable(Table table);
   void AddOrder(Order o, int tableID);
+  void AttendOrder(Order o);
 }
 
 public class AlterEventRepeater : MarshalByRefObject {
