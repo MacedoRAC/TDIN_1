@@ -140,7 +140,7 @@ public class Table {
 
 }
 
-public enum Operation { New, Change };
+public enum Operation { New, Change, Ready };
 
 public delegate void AlterDelegate(Operation op, Table item);
 
@@ -159,6 +159,7 @@ public interface IListSingleton {
   void AddOrder(Order o);
   void AddOrder(int quantity, Product product, int tableID);
   int AttendOrder(int orderId);
+  int FinishOrder(int orderId);
 }
 
 public class AlterEventRepeater : MarshalByRefObject {

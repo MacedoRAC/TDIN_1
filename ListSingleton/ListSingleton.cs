@@ -68,10 +68,30 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
             {
                 if (o.Equals(orderId))
                 {
-                    if (o.State != "In Queue")
+                    if (!o.State.Equals("In Queue"))
                         return -1;
                     o.attendOrder();
                     NotifyClients(Operation.Change, o, o.TableId);
+                    return 0;
+                }
+            }
+        }
+        return -1;
+    }
+
+
+    public int FinishOrder(int orderId)
+    {
+        foreach (Table t in TablesList)
+        {
+            foreach (Order o in t.orders)
+            {
+                if (o.Equals(orderId))
+                {
+                    if (!o.State.Equals("In Progress"))
+                        return -1;
+                    o.attendOrder();
+                    NotifyClients(Operation.Ready, o, o.TableId);
                     return 0;
                 }
             }
@@ -87,11 +107,11 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
             Delegate[] prepList = new Delegate[0];
             Delegate[] invkList;
 
-            if (order.Product.Bar && BarEvent != null)
+            if (order.Product.Bar && BarEvent != null && op != Operation.Ready)
             {
                 prepList = BarEvent.GetInvocationList();
             }
-            if (!order.Product.Bar && KitchenEvent != null)
+            if (!order.Product.Bar && KitchenEvent != null && op != Operation.Ready)
             {
                 prepList = KitchenEvent.GetInvocationList();
             }
