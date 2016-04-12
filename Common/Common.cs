@@ -39,8 +39,9 @@ public class Product
 [Serializable]
 public class Order
 {
-    [ThreadStatic] private static Object lockObject = new Object();
-    [ThreadStatic] static int COUNTER = 0;
+    private static readonly object lockObject = new object();
+
+    static int COUNTER = 0;
     public int Quantity { get; set; }
     public Product Product { get; set; }
     public string State { get; set; }
@@ -52,11 +53,8 @@ public class Order
         Quantity = quantity;
         Product = product;
         State = "In Queue";
-        lock(lockObject)
-        {
-            COUNTER++;
-            Id = COUNTER;
-        }
+        COUNTER = COUNTER+1;
+        Id = COUNTER;
     }     
 
     public float getTotalPrice()
