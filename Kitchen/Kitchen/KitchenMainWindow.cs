@@ -81,7 +81,7 @@ namespace Client.Room
 
         private ListViewItem CreateNewListViewItem(Order order, string tableId)
         {
-            string[] row = { "0", order.Quantity.ToString(), order.Product.Description, tableId, order.State.ToString() };
+            string[] row = { order.Id.ToString(), order.Quantity.ToString(), order.Product.Description, tableId, order.State.ToString() };
 
             return new ListViewItem(row);
         }
