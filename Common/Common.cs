@@ -156,7 +156,7 @@ public interface IListSingleton {
   void AddOrder(int quantity, Product product, int tableID);
   int AttendOrder(int orderId);
   int FinishOrder(int orderId);
-  int ToPayment(Table finished);
+  int ToPayment(int finished);
 }
 
 public class AlterEventRepeater : MarshalByRefObject {

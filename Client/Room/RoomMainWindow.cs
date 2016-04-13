@@ -171,9 +171,9 @@ namespace Client.Room
 
         private void RemoveTableFromTablesContainer(int tableID)
         {
-            for(int i=0; i < TablesContainer.Controls.Count; i++)
+            for(int i=1; i < TablesContainer.Controls.Count; i++)
             {
-                if (TablesContainer.Controls[i].Tag.ToString() == tableID.ToString())
+                if (TablesContainer.Controls[i].Tag.ToString().Equals( tableID.ToString()))
                     TablesContainer.Controls.RemoveAt(i);
             }
         }

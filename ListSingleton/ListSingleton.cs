@@ -202,8 +202,22 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         return PaymentList;
     }
 
-    public int ToPayment(Table finished)
+    public int ToPayment(int id)
     {
+        bool noTable = true;
+        Table finished = new Table(id);
+        foreach(Table t in TablesList)
+        {
+            if(t.ID == id)
+            {
+                finished = t;
+                noTable = false;
+                break;
+            }
+        }
+        if (noTable)
+            return -1;
+
         foreach(Order o in finished.orders)
         {
             if (!o.State.Equals("Done"))
@@ -212,6 +226,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         if (TablesList.Remove(finished))
         {
             PaymentList.Add(finished);
+            NotifyClients(Operation.Close, finished);
         }
         else
             return -1;
