@@ -131,8 +131,8 @@ namespace Client.Room
             OpenTablesCounter.Add(tableId, true);
             Button newTableBtn = new Button
             {
-                Name = "table_" + OpenTablesCounter,
-                Text = "Table " + OpenTablesCounter,
+                Name = "table_" + tableId+1,
+                Text = "Table " + tableId+1,
                 Tag = tableId,
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
