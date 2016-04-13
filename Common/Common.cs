@@ -111,6 +111,7 @@ public class Table {
         float price = 0f;
         foreach (Order o in orders)
             price += o.getTotalPrice();
+
         return price;
     }
 

@@ -52,7 +52,6 @@
             this.ListViewOrders.FullRowSelect = true;
             this.ListViewOrders.HoverSelection = true;
             this.ListViewOrders.Location = new System.Drawing.Point(0, 0);
-            this.ListViewOrders.MultiSelect = false;
             this.ListViewOrders.Name = "ListViewOrders";
             this.ListViewOrders.Size = new System.Drawing.Size(435, 308);
             this.ListViewOrders.Sorting = System.Windows.Forms.SortOrder.Ascending;

@@ -86,7 +86,7 @@ namespace Server.Payment
             Table table = tables[tableId];
 
             var tableDetails = new ServerTableDetaislForm(table);
-            tableDetails.Text = "Table Number " + (tableId + 1);
+            tableDetails.Text = "Payment of Table " + (tableId + 1);
             tableDetails.Tag = tableId;
 
             using (tableDetails)
