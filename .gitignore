@@ -1,11 +1,3 @@
 .vs/
-Common/bin/
-Client/bin/
-Server/bin/
-ListSingleton/bin/
-Kitchen/bin/
-Server/obj/
-Common/obj/
-Client/obj/
-ListSingleton/obj
-Kitchen/obj/
+[Bb]in/
+[Oo]bj/
