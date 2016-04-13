@@ -43,6 +43,11 @@ namespace Client.Room
                     ListViewItem updatedOrder = CreateNewListViewItem(item);
                     BeginInvoke(lvUpdate, new object[] { updatedOrder });
                     break;
+                case Operation.Ready:
+                    lvUpdate = new ListItemUpdateDelegate(UpdateListViewItemOrderStatus);
+                    ListViewItem readyOrder = CreateNewListViewItem(item);
+                    BeginInvoke(lvUpdate, new object[] { readyOrder });
+                    break;
             }
         }
 

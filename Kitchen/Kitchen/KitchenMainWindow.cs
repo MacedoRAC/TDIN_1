@@ -100,7 +100,29 @@ namespace Client.Room
 
         private void FinishOrder(object sender, EventArgs e)
         {
+            var selectedOrders = ListViewOrders.SelectedItems;
 
+            if (selectedOrders.Count == 0)
+                return;
+
+            foreach (var item in selectedOrders)
+            {
+                var orderId = ((ListViewItem)item).Text;
+                ListServer.FinishOrder(int.Parse(orderId));
+                RemoveOrderFromListView(orderId);
+            }
+        }
+
+        private void RemoveOrderFromListView(string orderId)
+        {
+            for (int i = 0; i < ListViewOrders.Items.Count; i++)
+            {
+                if (ListViewOrders.Items[i].Text == orderId)
+                {
+                    ListViewOrders.Items[i].Remove();
+                }
+
+            }
         }
 
         private ListViewItem CreateNewListViewItem(Order order, string tableId)

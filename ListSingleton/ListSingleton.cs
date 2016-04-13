@@ -90,7 +90,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
                 {
                     if (!o.State.Equals("In Progress"))
                         return -1;
-                    o.attendOrder();
+                    o.finishOrder();
                     NotifyClients(Operation.Ready, o, o.TableId);
                     return 0;
                 }
