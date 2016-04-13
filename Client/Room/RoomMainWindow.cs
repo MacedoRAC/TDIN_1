@@ -44,7 +44,7 @@ namespace Client.Room
         {
             foreach (Table it in tables)
             {
-                AddTablesToTablesContainer();
+                AddTablesToTablesContainer(it.ID);
                 OpenTablesCounter.Remove(it.ID);
                 OpenTablesCounter.Add(it.ID, true);
             }
@@ -61,7 +61,7 @@ namespace Client.Room
             {
                 case Operation.New:
                     ctrlsAdd = new ControlsAddDelegate(TablesContainer.Controls.Add);
-                    Button ctrlItem = CreatedNewTableButton();
+                    Button ctrlItem = CreatedNewTableButton(item.ID);
                     BeginInvoke(ctrlsAdd, new object[] { ctrlItem });
                     break;
                 case Operation.Close:
@@ -114,19 +114,19 @@ namespace Client.Room
                 listServer.AddTable(new Table(table));
         }
 
-        private void AddTablesToTablesContainer()
+        private void AddTablesToTablesContainer(int tableId)
         {
-            var newTable = CreatedNewTableButton();
+            var newTable = CreatedNewTableButton(tableId);
 
             TablesContainer.Controls.Add(newTable);
         }
 
-        private Button CreatedNewTableButton()
+        private Button CreatedNewTableButton(int tableId)
         {
             Button newTableBtn = new Button
             {
-                Name = "table_" + OpenTablesCounter,
-                Text = "Table " + OpenTablesCounter,
+                Name = "table_" + tableId,
+                Text = "Table " + tableId,
                 Tag = getLowestAvailableTable(),
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
