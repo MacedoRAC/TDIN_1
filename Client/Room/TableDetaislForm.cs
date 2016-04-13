@@ -118,7 +118,7 @@ namespace Client.Room
         private void Checkout(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            this.Close();
+            CloseWindow(sender, e);
         }
     }
 }

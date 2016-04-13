@@ -8,16 +8,14 @@ namespace Server.Payment
     {
         delegate void ControlsAddDelegate(Control lvItem);
         delegate void ChCommDelegate(Table item);
-        IListSingleton listServer;
+        ListSingleton listServer;
         AlterEventRepeater evRepeater;
         List<Table> tables;
 
         public PaymentMainWindow()
         {
             InitializeComponent();
-            listServer = new ListSingleton();
-            listServer = (ListSingleton) Activator.GetObject( listServer.GetType(), "tcp://localhost:9000/Server/ListServer", null);
-           // listServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
+            listServer = (ListSingleton) Activator.GetObject( typeof(ListSingleton), "tcp://localhost:9000/Server/ListServer");
             evRepeater = new AlterEventRepeater();
             evRepeater.alterEvent += new AlterDelegate(DoAlterations);
             listServer.PaymentEvent += new AlterDelegate(evRepeater.Repeater);
@@ -87,7 +85,7 @@ namespace Server.Payment
             int tableId = int.Parse(((Button)sender).Tag.ToString());
             Table table = tables[tableId];
 
-            var tableDetails = new TableDetaislForm(table);
+            var tableDetails = new ServerTableDetaislForm(table);
             tableDetails.Text = "Table Number " + (tableId + 1);
             tableDetails.Tag = tableId;
 

@@ -6,7 +6,7 @@ using System.Threading;
 public class ListSingleton : MarshalByRefObject, IListSingleton
 {
     List<Table> TablesList;
-    List<Table> PaymentList;
+    public List<Table> PaymentList { get; set; }
     public event AlterDelegate AlterEvent;
     public event OrderDelegate OrderEvent;
     public event OrderDelegate KitchenEvent;

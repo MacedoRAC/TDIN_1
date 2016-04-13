@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Server.Payment
 {
-    public partial class TableDetaislForm : Form
+    public partial class ServerTableDetaislForm : Form
     {
         protected Table Table;
 
-        public TableDetaislForm(Table table)
+        public ServerTableDetaislForm(Table table)
         {
             Table = table;
         }
@@ -29,7 +28,8 @@ namespace Server.Payment
 
         private ListViewItem CreateNewListViewItem(Order order)
         {
-            string[] row = { order.Id.ToString(), order.Quantity.ToString(), order.Product.Description, order.State.ToString() };
+            var totalPrice = order.Product.UnitPrice * order.Quantity;
+            string[] row = { order.Quantity.ToString(), order.Product.Description, order.Product.UnitPrice.ToString(), totalPrice.ToString() };
 
             return new ListViewItem(row);
         }

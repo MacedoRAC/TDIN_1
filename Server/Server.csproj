@@ -70,11 +70,11 @@
     <Compile Include="Payment\PaymentMainWindow.Designer.cs">
       <DependentUpon>PaymentMainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payment\TableDetaislForm.cs">
+    <Compile Include="Payment\ServerTableDetaislForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Payment\TableDetaislForm.Designer.cs">
-      <DependentUpon>TableDetaislForm.cs</DependentUpon>
+    <Compile Include="Payment\ServerTableDetaislForm.Designer.cs">
+      <DependentUpon>ServerTableDetaislForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,8 +129,8 @@
     <EmbeddedResource Include="Payment\PaymentMainWindow.resx">
       <DependentUpon>PaymentMainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Payment\TableDetaislForm.resx">
-      <DependentUpon>TableDetaislForm.cs</DependentUpon>
+    <EmbeddedResource Include="Payment\ServerTableDetaislForm.resx">
+      <DependentUpon>ServerTableDetaislForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
