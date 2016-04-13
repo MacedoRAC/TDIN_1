@@ -4,8 +4,10 @@ Client/bin/
 Server/bin/
 ListSingleton/bin/
 Kitchen/bin/
+Bar/bin/
 Server/obj/
 Common/obj/
 Client/obj/
 ListSingleton/obj
 Kitchen/obj/
+Bar/obj/

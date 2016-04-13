@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.Remoting;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Client.Room
@@ -67,9 +69,23 @@ namespace Client.Room
                 if (ListViewOrders.Items[i].Text == lvItem.Text)
                 {
                     ListViewOrders.Items[i] = lvItem;
+
+                    // flash row
+                    BackgroudFlash(i);
                 }
 
             }
+        }
+
+        private void BackgroudFlash(int i)
+        {
+            ListViewOrders.Items[i].BackColor = Color.LightGreen;
+            ListViewOrders.Refresh();
+
+            Thread.Sleep(1000);
+
+            ListViewOrders.Items[i].BackColor = Color.White;
+            ListViewOrders.Refresh();
         }
 
         private void CloseWindow(object sender, EventArgs e)
