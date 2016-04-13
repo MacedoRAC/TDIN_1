@@ -87,7 +87,7 @@
             this.addOrderBtn.ForeColor = System.Drawing.Color.White;
             this.addOrderBtn.Location = new System.Drawing.Point(438, 13);
             this.addOrderBtn.Name = "addOrderBtn";
-            this.addOrderBtn.Size = new System.Drawing.Size(96, 37);
+            this.addOrderBtn.Size = new System.Drawing.Size(101, 37);
             this.addOrderBtn.TabIndex = 1;
             this.addOrderBtn.Text = "Add Order";
             this.addOrderBtn.UseVisualStyleBackColor = false;
@@ -103,7 +103,7 @@
             this.closeBtn.ForeColor = System.Drawing.Color.White;
             this.closeBtn.Location = new System.Drawing.Point(438, 56);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(96, 37);
+            this.closeBtn.Size = new System.Drawing.Size(101, 37);
             this.closeBtn.TabIndex = 3;
             this.closeBtn.Text = "Close";
             this.closeBtn.UseVisualStyleBackColor = false;
@@ -119,8 +119,10 @@
             this.Controls.Add(this.addOrderBtn);
             this.Controls.Add(this.ListViewOrders);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(562, 347);
+            this.MinimumSize = new System.Drawing.Size(562, 347);
             this.Name = "TableDetaislForm";
-            this.Text = "Meal Number ";
+            this.Text = "Table Number ";
             this.Load += new System.EventHandler(this.TableDetailsForm_Load);
             this.ResumeLayout(false);
 
