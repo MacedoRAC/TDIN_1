@@ -12,6 +12,7 @@ namespace Client.Room
         IListSingleton listServer;
         OrderEventRepeater orderRepeater;
         delegate ListViewItem ListItemAddDelegate(ListViewItem lvItem);
+        delegate void ListItemUpdateDelegate(ListViewItem lvItem);
 
         public TableDetaislForm(Table table, Dictionary<string, Product> products)
         {
@@ -28,6 +29,7 @@ namespace Client.Room
         public void DoAlterations(Operation op, Order item, int tableId)
         {
             ListItemAddDelegate lvAdd;
+            ListItemUpdateDelegate lvUpdate;
 
             switch (op)
             {
@@ -35,6 +37,11 @@ namespace Client.Room
                     lvAdd = new ListItemAddDelegate(ListViewOrders.Items.Add);
                     ListViewItem lvItem = CreateNewListViewItem(item);
                     BeginInvoke(lvAdd, new object[] { lvItem });
+                    break;
+                case Operation.Change:
+                    lvUpdate = new ListItemUpdateDelegate(UpdateListViewItemOrderStatus);
+                    ListViewItem updatedOrder = CreateNewListViewItem(item);
+                    BeginInvoke(lvUpdate, new object[] { updatedOrder });
                     break;
             }
         }
@@ -45,6 +52,18 @@ namespace Client.Room
             {
                 var lvItem = CreateNewListViewItem(order);
                 ListViewOrders.Items.Add(lvItem);
+            }
+        }
+
+        private void UpdateListViewItemOrderStatus(ListViewItem lvItem)
+        {
+            for (int i = 0; i < ListViewOrders.Items.Count; i++)
+            {
+                if (ListViewOrders.Items[i].Text == lvItem.Text)
+                {
+                    ListViewOrders.Items[i] = lvItem;
+                }
+
             }
         }
 
@@ -71,7 +90,7 @@ namespace Client.Room
 
         private ListViewItem CreateNewListViewItem(Order order)
         {
-            string[] row = { order.Quantity.ToString(), order.Product.Description, order.State.ToString() };
+            string[] row = { order.Id.ToString(), order.Quantity.ToString(), order.Product.Description, order.State.ToString() };
 
             return new ListViewItem(row);
         }

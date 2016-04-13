@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TableDetaislForm));
             this.ListViewOrders = new System.Windows.Forms.ListView();
+            this.columnOrderNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnQuantity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnState = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,6 +41,7 @@
             // ListViewOrders
             // 
             this.ListViewOrders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnOrderNumber,
             this.columnQuantity,
             this.columnDescription,
             this.columnState});
@@ -55,20 +57,25 @@
             this.ListViewOrders.UseCompatibleStateImageBehavior = false;
             this.ListViewOrders.View = System.Windows.Forms.View.Details;
             // 
+            // columnOrderNumber
+            // 
+            this.columnOrderNumber.Text = "Order Number";
+            this.columnOrderNumber.Width = 79;
+            // 
             // columnQuantity
             // 
             this.columnQuantity.Text = "Quantity";
-            this.columnQuantity.Width = 63;
+            this.columnQuantity.Width = 51;
             // 
             // columnDescription
             // 
             this.columnDescription.Text = "Product";
-            this.columnDescription.Width = 275;
+            this.columnDescription.Width = 187;
             // 
             // columnState
             // 
             this.columnState.Text = "State";
-            this.columnState.Width = 92;
+            this.columnState.Width = 112;
             // 
             // addOrderBtn
             // 
@@ -127,5 +134,6 @@
         private System.Windows.Forms.ColumnHeader columnState;
         private System.Windows.Forms.Button addOrderBtn;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.ColumnHeader columnOrderNumber;
     }
 }
