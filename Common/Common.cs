@@ -148,6 +148,7 @@ public interface IListSingleton {
     event OrderDelegate BarEvent;
 
     List<Table> GetTablesList();
+    List<Table> GetPaymentList();
   Dictionary<string, Product> GetMenu();
   int GetNewType();
   void AddTable(Table table);
@@ -155,6 +156,7 @@ public interface IListSingleton {
   void AddOrder(int quantity, Product product, int tableID);
   int AttendOrder(int orderId);
   int FinishOrder(int orderId);
+  int ToPayment(Table finished);
 }
 
 public class AlterEventRepeater : MarshalByRefObject {

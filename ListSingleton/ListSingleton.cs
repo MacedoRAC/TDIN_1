@@ -6,6 +6,7 @@ using System.Threading;
 public class ListSingleton : MarshalByRefObject, IListSingleton
 {
     List<Table> TablesList;
+    List<Table> PaymentList;
     public event AlterDelegate AlterEvent;
     public event OrderDelegate OrderEvent;
     public event OrderDelegate KitchenEvent;
@@ -18,6 +19,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     {
         Console.WriteLine("Constructor called.");
         TablesList = new List<Table>();
+        PaymentList = new List<Table>();
         initializeMenu();
     }
 
@@ -193,5 +195,27 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     public Dictionary<string, Product> GetMenu()
     {
         return menu;
+    }
+
+    public List<Table> GetPaymentList()
+    {
+        return PaymentList;
+    }
+
+    public int ToPayment(Table finished)
+    {
+        foreach(Order o in finished.orders)
+        {
+            if (!o.State.Equals("Done"))
+                return -1;
+        }
+        if (TablesList.Remove(finished))
+        {
+            PaymentList.Add(finished);
+        }
+        else
+            return -1;
+
+        return 0;
     }
 }
