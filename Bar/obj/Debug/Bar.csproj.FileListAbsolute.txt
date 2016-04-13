@@ -1,0 +1,11 @@
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\bin\Debug\Client.exe.config
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\obj\Debug\Client.exe
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\obj\Debug\Client.pdb
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\bin\Debug\Client.exe
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\bin\Debug\Client.pdb
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\bin\Debug\Common.dll
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\bin\Debug\Common.pdb
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\obj\Debug\Bar.csprojResolveAssemblyReference.cache
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\obj\Debug\Client.Room.BarMainWindow.resources
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\obj\Debug\Client.Properties.Resources.resources
+C:\Users\MacedoRAC\Documents\Visual Studio 2015\Projects\FEUP\TDIN_1\Bar\obj\Debug\Bar.csproj.GenerateResource.Cache

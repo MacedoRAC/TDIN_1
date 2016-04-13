@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Client.Room
 {
-    public partial class KitchenMainWindow : Form
+    public partial class BarMainWindow : Form
     {
         IListSingleton ListServer;
         OrderEventRepeater orderRepeater;
@@ -13,13 +13,13 @@ namespace Client.Room
         delegate void ListItemUpdateDelegate(ListViewItem lvItem);
         List<Table> Tables;
 
-        public KitchenMainWindow()
+        public BarMainWindow()
         {
             RemotingConfiguration.Configure("Client.exe.config", false);
             ListServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
             orderRepeater = new OrderEventRepeater();
             orderRepeater.alterEvent += new OrderDelegate(DoAlterations);
-            ListServer.KitchenEvent += new OrderDelegate(orderRepeater.Repeater);
+            ListServer.BarEvent += new OrderDelegate(orderRepeater.Repeater);
 
             Tables = ListServer.GetTablesList();
 
@@ -54,11 +54,10 @@ namespace Client.Room
                 {
                     ListViewOrders.Items[i] = lvItem;
                 }
-
             }
         }
 
-        public void KitchenMainWindow_Load(object sender, EventArgs e)
+        public void BarMainWindow_Load(object sender, EventArgs e)
         {
             FillListViewOrders();
         }
@@ -69,7 +68,7 @@ namespace Client.Room
             {
                 foreach (var order in table.orders)
                 {
-                    if (order.State != "Done" && !order.Product.Bar)
+                    if (order.State != "Done" && order.Product.Bar)
                     {
                         var lvItem = CreateNewListViewItem(order, (table.ID + 1).ToString());
                         ListViewOrders.Items.Add(lvItem);
@@ -110,7 +109,7 @@ namespace Client.Room
                 var orderId = ((ListViewItem)item).Text;
                 var result = ListServer.FinishOrder(int.Parse(orderId));
 
-                if(result != -1)
+                if (result != -1)
                     RemoveOrderFromListView(orderId);
             }
         }

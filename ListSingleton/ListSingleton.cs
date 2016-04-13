@@ -45,7 +45,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
 
     public void AddOrder(Order o)
     {
-        Console.WriteLine(o.TableId);
+        Console.WriteLine("Adding Order to table {0}", o.TableId);
         foreach (Table t in TablesList)
             if (t.Equals(o.TableId))
                 t.addOrder(o);
