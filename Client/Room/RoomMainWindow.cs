@@ -131,8 +131,8 @@ namespace Client.Room
             OpenTablesCounter.Add(tableId, true);
             Button newTableBtn = new Button
             {
-                Name = "table_" + tableId+1,
-                Text = "Table " + tableId+1,
+                Name = "table_" + (tableId+1),
+                Text = "Table " + (tableId+1),
                 Tag = tableId,
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
@@ -153,7 +153,29 @@ namespace Client.Room
             var tableDetails = new TableDetaislForm(table, listServer.GetMenu());
             tableDetails.Text = "Table Number " + (tableId + 1);
             tableDetails.Tag = tableId;
-            tableDetails.Show();
+
+            using (tableDetails)
+            {
+                if (tableDetails.ShowDialog() == DialogResult.OK)
+                {
+                    var result = listServer.ToPayment(table.ID);
+
+                    if(result != -1)
+                    {
+                        RemoveTableFromTablesContainer(table.ID);
+                        OpenTablesCounter.Remove(table.ID);
+                    }
+                }
+            }
+        }
+
+        private void RemoveTableFromTablesContainer(int tableID)
+        {
+            for(int i=0; i < TablesContainer.Controls.Count; i++)
+            {
+                if (TablesContainer.Controls[i].Tag.ToString() == tableID.ToString())
+                    TablesContainer.Controls.RemoveAt(i);
+            }
         }
 
         private void exit(object sender, EventArgs e)

@@ -114,5 +114,11 @@ namespace Client.Room
 
             return new ListViewItem(row);
         }
+
+        private void Checkout(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }

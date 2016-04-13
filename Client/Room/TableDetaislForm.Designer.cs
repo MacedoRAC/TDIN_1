@@ -36,6 +36,7 @@
             this.columnState = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addOrderBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.closeTableBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ListViewOrders
@@ -101,13 +102,29 @@
             this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.White;
-            this.closeBtn.Location = new System.Drawing.Point(438, 56);
+            this.closeBtn.Location = new System.Drawing.Point(438, 99);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(101, 37);
             this.closeBtn.TabIndex = 3;
-            this.closeBtn.Text = "Close";
+            this.closeBtn.Text = "Back";
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.CloseWindow);
+            // 
+            // closeTableBtn
+            // 
+            this.closeTableBtn.BackColor = System.Drawing.Color.Transparent;
+            this.closeTableBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSeaGreen;
+            this.closeTableBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSeaGreen;
+            this.closeTableBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeTableBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeTableBtn.ForeColor = System.Drawing.Color.White;
+            this.closeTableBtn.Location = new System.Drawing.Point(438, 56);
+            this.closeTableBtn.Name = "closeTableBtn";
+            this.closeTableBtn.Size = new System.Drawing.Size(101, 37);
+            this.closeTableBtn.TabIndex = 4;
+            this.closeTableBtn.Text = "Close Table";
+            this.closeTableBtn.UseVisualStyleBackColor = false;
+            this.closeTableBtn.Click += new System.EventHandler(this.Checkout);
             // 
             // TableDetaislForm
             // 
@@ -115,6 +132,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(546, 308);
+            this.Controls.Add(this.closeTableBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.addOrderBtn);
             this.Controls.Add(this.ListViewOrders);
@@ -137,5 +155,6 @@
         private System.Windows.Forms.Button addOrderBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.ColumnHeader columnOrderNumber;
+        private System.Windows.Forms.Button closeTableBtn;
     }
 }
