@@ -15,7 +15,9 @@ namespace Server.Payment
         public PaymentMainWindow()
         {
             InitializeComponent();
-            listServer = Activator.GetObject(ListSingleton, "ListServer");
+            listServer = new ListSingleton();
+            listServer = (ListSingleton) Activator.GetObject( listServer.GetType(), "tcp://localhost:9000/Server/ListServer", null);
+           // listServer = (IListSingleton)RemoteNew.New(typeof(IListSingleton));
             evRepeater = new AlterEventRepeater();
             evRepeater.alterEvent += new AlterDelegate(DoAlterations);
             listServer.PaymentEvent += new AlterDelegate(evRepeater.Repeater);
