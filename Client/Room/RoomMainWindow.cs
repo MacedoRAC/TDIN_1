@@ -7,7 +7,7 @@ namespace Client.Room
 {
     public partial class RoomMainWindow : Form
     {
-        private int OpenTablesCounter { get; set; } = 0;
+        private Dictionary<int, bool> OpenTablesCounter; //false not oppened, true oppened
         delegate void ControlsAddDelegate(Control lvItem);
         delegate void ChCommDelegate(Table item);
         IListSingleton listServer;
@@ -23,9 +23,16 @@ namespace Client.Room
             evRepeater = new AlterEventRepeater();
             evRepeater.alterEvent += new AlterDelegate(DoAlterations);
             listServer.AlterEvent += new AlterDelegate(evRepeater.Repeater);
+            OpenTablesCounter = new Dictionary<int, bool>();
 
+
+            for (int i = 0; i < MaxNumberOfTables; i++)
+            {
+                OpenTablesCounter.Add(i, false);
+            }
 
             tables = listServer.GetTablesList();
+
         }
 
         public override object InitializeLifetimeService()
@@ -38,18 +45,18 @@ namespace Client.Room
             foreach (Table it in tables)
             {
                 AddTablesToTablesContainer();
+                OpenTablesCounter.Remove(it.ID);
+                OpenTablesCounter.Add(it.ID, true);
             }
 
-            OpenTablesCounter = tables.Count;
-
-            if (OpenTablesCounter >= MaxNumberOfTables)
+            if (tables.Count >= MaxNumberOfTables)
                 openTableButton.Enabled = false;
         }
 
         public void DoAlterations(Operation op, Table item)
         {
             ControlsAddDelegate ctrlsAdd;
-
+            ChCommDelegate tableRemove;
             switch (op)
             {
                 case Operation.New:
@@ -57,8 +64,19 @@ namespace Client.Room
                     Button ctrlItem = CreatedNewTableButton();
                     BeginInvoke(ctrlsAdd, new object[] { ctrlItem });
                     break;
+                case Operation.Close:
+                    tableRemove = new ChCommDelegate(RemoveTable);
+                    BeginInvoke(tableRemove, new object[] { item });
+                    break;
             }
         }
+
+        private void RemoveTable(Table item)
+        {
+            OpenTablesCounter.Remove(item.ID);
+            OpenTablesCounter.Add(item.ID, false);
+        }
+
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -70,12 +88,30 @@ namespace Client.Room
 
         }
 
+
+        private int getLowestAvailableTable()
+        {
+            int i = 0;
+            foreach (bool value in OpenTablesCounter.Values)
+            {
+                if (!value)
+                {
+                    return i;
+                }
+                i++;
+            }
+
+            //no tables available
+            return -1;
+        }
+
         private void OpenNewTable(object sender, EventArgs e)
         {
-            listServer.AddTable(new Table(OpenTablesCounter));
-
-            if (OpenTablesCounter >= MaxNumberOfTables)
+            int table = getLowestAvailableTable();
+            if (table == -1)
                 openTableButton.Enabled = false;
+            else
+                listServer.AddTable(new Table(table));
         }
 
         private void AddTablesToTablesContainer()
@@ -85,14 +121,13 @@ namespace Client.Room
             TablesContainer.Controls.Add(newTable);
         }
 
-        private Button CreatedNewTableButton ()
+        private Button CreatedNewTableButton()
         {
-            OpenTablesCounter++;
-            Button newTableBtn =  new Button
+            Button newTableBtn = new Button
             {
                 Name = "table_" + OpenTablesCounter,
                 Text = "Table " + OpenTablesCounter,
-                Tag = OpenTablesCounter-1,
+                Tag = getLowestAvailableTable(),
                 Height = 30,
                 FlatStyle = FlatStyle.Flat
 
@@ -110,7 +145,7 @@ namespace Client.Room
             Table table = tables[tableId];
 
             var tableDetails = new TableDetaislForm(table, listServer.GetMenu());
-            tableDetails.Text = "Table Number " + (tableId+1);
+            tableDetails.Text = "Table Number " + (tableId + 1);
             tableDetails.Tag = tableId;
             tableDetails.Show();
         }
