@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentMainWindow));
             this.buttonsContainer = new System.Windows.Forms.Panel();
             this.exitButton = new System.Windows.Forms.Button();
-            this.tablesBtnsContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.TablesContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonsContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,20 +63,20 @@
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.Exit);
             // 
-            // tablesBtnsContainer
+            // TablesContainer
             // 
-            this.tablesBtnsContainer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tablesBtnsContainer.Location = new System.Drawing.Point(0, 0);
-            this.tablesBtnsContainer.Name = "tablesBtnsContainer";
-            this.tablesBtnsContainer.Size = new System.Drawing.Size(431, 293);
-            this.tablesBtnsContainer.TabIndex = 1;
+            this.TablesContainer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.TablesContainer.Location = new System.Drawing.Point(0, 0);
+            this.TablesContainer.Name = "TablesContainer";
+            this.TablesContainer.Size = new System.Drawing.Size(431, 293);
+            this.TablesContainer.TabIndex = 1;
             // 
             // PaymentMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 293);
-            this.Controls.Add(this.tablesBtnsContainer);
+            this.Controls.Add(this.TablesContainer);
             this.Controls.Add(this.buttonsContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(565, 332);
@@ -92,6 +92,6 @@
 
         private System.Windows.Forms.Panel buttonsContainer;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.FlowLayoutPanel tablesBtnsContainer;
+        private System.Windows.Forms.FlowLayoutPanel TablesContainer;
     }
 }

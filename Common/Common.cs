@@ -146,6 +146,7 @@ public interface IListSingleton {
   event OrderDelegate OrderEvent;
     event OrderDelegate KitchenEvent;
     event OrderDelegate BarEvent;
+    event AlterDelegate PaymentEvent;
 
     List<Table> GetTablesList();
     List<Table> GetPaymentList();

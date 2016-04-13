@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Server.Payment;
 using System.Runtime.Remoting;
+using System.Windows.Forms;
 
 class Program {
   static void Main(string[] args) {
     RemotingConfiguration.Configure("Server.exe.config", false);
-    Console.WriteLine("Press Return to terminate.");
-    Console.ReadLine();
+    Application.Run(new PaymentMainWindow());
   }
 }
