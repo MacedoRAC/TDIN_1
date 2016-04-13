@@ -11,6 +11,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     public event OrderDelegate OrderEvent;
     public event OrderDelegate KitchenEvent;
     public event OrderDelegate BarEvent;
+    public event AlterDelegate PaymentEvent;
     public int Type = 2;
 
     public Dictionary<string, Product> menu;
@@ -147,7 +148,18 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     {
         if (AlterEvent != null)
         {
-            Delegate[] invkList = AlterEvent.GetInvocationList();
+            Delegate[] roomList = AlterEvent.GetInvocationList();
+            Delegate[] paymentList = PaymentEvent.GetInvocationList();
+            Delegate[] invkList;
+            if (op == Operation.Close)
+            {
+                invkList = new Delegate[roomList.Length + paymentList.Length];
+                roomList.CopyTo(invkList, 0);
+                paymentList.CopyTo(invkList, roomList.Length);
+            }
+            else
+                invkList = roomList;
+
 
             foreach (AlterDelegate handler in invkList)
             {
