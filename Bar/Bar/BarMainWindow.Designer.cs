@@ -144,6 +144,8 @@
             this.Controls.Add(this.attendOrderBtn);
             this.Controls.Add(this.ListViewOrders);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(562, 347);
+            this.MinimumSize = new System.Drawing.Size(562, 347);
             this.Name = "BarMainWindow";
             this.Text = "Bar";
             this.Load += new System.EventHandler(this.BarMainWindow_Load);

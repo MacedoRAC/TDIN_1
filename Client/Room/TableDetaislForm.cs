@@ -73,7 +73,6 @@ namespace Client.Room
                     // flash row
                     BackgroudFlash(i);
                 }
-
             }
         }
 

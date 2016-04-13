@@ -54,7 +54,7 @@
             this.ListViewOrders.Location = new System.Drawing.Point(0, 0);
             this.ListViewOrders.MultiSelect = false;
             this.ListViewOrders.Name = "ListViewOrders";
-            this.ListViewOrders.Size = new System.Drawing.Size(435, 308);
+            this.ListViewOrders.Size = new System.Drawing.Size(435, 301);
             this.ListViewOrders.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.ListViewOrders.TabIndex = 1;
             this.ListViewOrders.UseCompatibleStateImageBehavior = false;
@@ -138,12 +138,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkCyan;
-            this.ClientSize = new System.Drawing.Size(546, 308);
+            this.ClientSize = new System.Drawing.Size(546, 301);
             this.Controls.Add(this.finishOrderBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.attendOrderBtn);
             this.Controls.Add(this.ListViewOrders);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(562, 340);
+            this.MinimumSize = new System.Drawing.Size(562, 340);
             this.Name = "KitchenMainWindow";
             this.Text = "Kitchen";
             this.Load += new System.EventHandler(this.KitchenMainWindow_Load);
