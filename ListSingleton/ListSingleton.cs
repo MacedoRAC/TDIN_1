@@ -136,6 +136,8 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
                     catch (Exception)
                     {
                         OrderEvent -= handler;
+                        BarEvent -= handler;
+                        KitchenEvent -= handler;
                         Console.WriteLine("Exception: Removed an event handler");
                     }
                 }).Start();
@@ -187,6 +189,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
                     catch (Exception)
                     {
                         AlterEvent -= handler;
+                        PaymentEvent -= handler;
                         Console.WriteLine("Exception: Removed an event handler");
                     }
                 }).Start();
