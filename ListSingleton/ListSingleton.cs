@@ -18,7 +18,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
 
     public ListSingleton()
     {
-        Console.WriteLine("Constructor called.");
+      //  Console.WriteLine("Constructor called.");
         TablesList = new List<Table>();
         PaymentList = new List<Table>();
         initializeMenu();
@@ -31,7 +31,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
 
     public List<Table> GetTablesList()
     {
-        Console.WriteLine("GetList() called.");
+  //      Console.WriteLine("GetList() called.");
         return TablesList;
     }
 
@@ -48,7 +48,7 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
 
     public void AddOrder(Order o)
     {
-        Console.WriteLine("Adding Order to table {0}", o.TableId);
+      //  Console.WriteLine("Adding Order to table {0}", o.TableId);
         foreach (Table t in TablesList)
             if (t.Equals(o.TableId))
                 t.addOrder(o);
@@ -131,14 +131,14 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
                     try
                     {
                         handler(op, order, tableId);
-                        Console.WriteLine("Invoking event handler");
+                    //    Console.WriteLine("Invoking event handler");
                     }
                     catch (Exception)
                     {
                         OrderEvent -= handler;
                         BarEvent -= handler;
                         KitchenEvent -= handler;
-                        Console.WriteLine("Exception: Removed an event handler");
+                    //    Console.WriteLine("Exception: Removed an event handler");
                     }
                 }).Start();
             }
@@ -184,13 +184,13 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
                     try
                     {
                         handler(op, item);
-                        Console.WriteLine("Invoking event handler");
+                    //    Console.WriteLine("Invoking event handler");
                     }
                     catch (Exception)
                     {
                         AlterEvent -= handler;
                         PaymentEvent -= handler;
-                        Console.WriteLine("Exception: Removed an event handler");
+                     //   Console.WriteLine("Exception: Removed an event handler");
                     }
                 }).Start();
             }
