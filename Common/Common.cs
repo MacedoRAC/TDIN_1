@@ -136,7 +136,7 @@ public class Table {
 
 }
 
-public enum Operation { New, Change, Ready, Close };
+public enum Operation { New, Change, Ready, Close, Finish };
 
 public delegate void AlterDelegate(Operation op, Table item);
 

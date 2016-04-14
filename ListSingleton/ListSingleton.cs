@@ -143,6 +143,18 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
         }
     }
 
+    public void DeleteTable(Table table)
+    {
+        foreach (Table t in PaymentList)
+        {
+            if (t.ID == table.ID)
+            {
+                PaymentList.Remove(t);
+                break;
+            }
+        }
+        NotifyClients(Operation.Finish, table);
+    }
 
     void NotifyClients(Operation op, Table item)
     {
@@ -157,6 +169,8 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
                 roomList.CopyTo(invkList, 0);
                 paymentList.CopyTo(invkList, roomList.Length);
             }
+            else if (op == Operation.Finish)
+                invkList = paymentList;
             else
                 invkList = roomList;
 
@@ -184,21 +198,21 @@ public class ListSingleton : MarshalByRefObject, IListSingleton
     private void initializeMenu()
     {
         menu = new Dictionary<string, Product>();
-        menu.Add("Água", new Product(0.7f, "Água"));
-        menu.Add("Coca-cola", new Product(1f, "Coca-cola"));
-        menu.Add("Super Bock", new Product(0.7f, "Super Bock"));
-        menu.Add("Vinho Bramco da Casa", new Product(0.7f, "Vinho Branco da Casa"));
-        menu.Add("Vinho Tinto da Casa", new Product(0.7f, "Vinho Tinto da Casa"));
+        menu.Add("Água", new Product(0.5f, "Água"));
+        menu.Add("Coca-cola", new Product(0.9f, "Coca-cola"));
+        menu.Add("Super Bock", new Product(1f, "Super Bock"));
+        menu.Add("Vinho Bramco da Casa", new Product(5f, "Vinho Branco da Casa"));
+        menu.Add("Vinho Tinto da Casa", new Product(5f, "Vinho Tinto da Casa"));
 
-        menu.Add("Bacalhau com Natas", new Product(0.7f, "Bacalhau com Natas", false));
-        menu.Add("Vitela Mendinha", new Product(0.7f, "Vitela Mendinha", false));
-        menu.Add("Francesinha Especial", new Product(0.7f, "Francesinha Especial", false));
-        menu.Add("Leitão no forno", new Product(0.7f, "Leitão no forno", false));
-        menu.Add("Sandes de Leitão", new Product(0.7f, "Sandes de Leitão", false));
+        menu.Add("Bacalhau com Natas", new Product(8f, "Bacalhau com Natas", false, 13));
+        menu.Add("Vitela Mendinha", new Product(13f, "Vitela Mendinha", false, 13));
+        menu.Add("Francesinha Especial", new Product(6.99f, "Francesinha Especial", false, 13));
+        menu.Add("Leitão no forno", new Product(12f, "Leitão no forno", false, 13));
+        menu.Add("Sandes de Leitão", new Product(5f, "Sandes de Leitão", true,  13));
 
-        menu.Add("Leite Creme", new Product(0.7f, "Leite Creme"));
-        menu.Add("Bolo do Bolacha", new Product(0.7f, "Bolo de Bolacha"));
-        menu.Add("Mousse de Manga", new Product(0.7f, "Mousse de Manga"));
+        menu.Add("Leite Creme", new Product(2.99f, "Leite Creme", true, 13));
+        menu.Add("Bolo do Bolacha", new Product(2.5f, "Bolo de Bolacha", true, 13));
+        menu.Add("Mousse de Manga", new Product(2.5f, "Mousse de Manga", true, 13));
 
 
 

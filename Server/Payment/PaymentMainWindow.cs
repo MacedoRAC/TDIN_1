@@ -40,6 +40,7 @@ namespace Server.Payment
         public void DoAlterations(Operation op, Table item)
         {
             ControlsAddDelegate ctrlsAdd;
+            ChCommDelegate tableRemove;
             switch (op)
             {
                 case Operation.Close:
@@ -47,13 +48,18 @@ namespace Server.Payment
                     Button ctrlItem = CreatedNewTableButton(item.ID);
                     BeginInvoke(ctrlsAdd, new object[] { ctrlItem });
                     break;
+                case Operation.Finish:
+                    tableRemove = new ChCommDelegate(RemoveTable);
+                    BeginInvoke(tableRemove, new object[] { item });
+                    break;
             }
         }
 
         private void RemoveTable(Table item)
         {
-
-        }
+            tables.Remove(item);
+            RemoveTableFromTablesContainer(item.ID);
+        }        
 
         private void AddTablesToTablesContainer(int tableId)
         {
@@ -105,7 +111,7 @@ namespace Server.Payment
 
         private void RemoveTableFromTablesContainer(int tableID)
         {
-            for (int i = 1; i < TablesContainer.Controls.Count; i++)
+            for (int i = 0; i < TablesContainer.Controls.Count; i++)
             {
                 if (TablesContainer.Controls[i].Tag.ToString().Equals(tableID.ToString()))
                     TablesContainer.Controls.RemoveAt(i);

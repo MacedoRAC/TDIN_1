@@ -11,9 +11,10 @@ namespace Server.Payment
     public partial class ServerTableDetaislForm : Form
     {
         protected Table Table;
-
+        ListSingleton listServer;
         public ServerTableDetaislForm(Table table)
         {
+            listServer = (ListSingleton)Activator.GetObject(typeof(ListSingleton), "tcp://localhost:9000/Server/ListServer");
             Table = table;
             InitializeComponent();
         }
@@ -75,6 +76,7 @@ namespace Server.Payment
             linesList.Add("Total: " + Table.totalPrice().ToString("C", CultureInfo.CreateSpecificCulture("pt-PT")));
             File.WriteAllLines(@path, linesList);
 
+            listServer.DeleteTable(Table);
             System.Diagnostics.Process.Start(@path);
 
             this.DialogResult = DialogResult.OK;
